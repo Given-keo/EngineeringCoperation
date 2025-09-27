@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 //Fadhil
 
-namespace EngineeringCoperation
+namespace EngineeringCoperation.Models
 {
     public class Configuration
     {

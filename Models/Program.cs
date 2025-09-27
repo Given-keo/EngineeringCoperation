@@ -1,4 +1,4 @@
-namespace EngineeringCoperation
+namespace EngineeringCoperation.Models
 {
     internal static class Program
     {
