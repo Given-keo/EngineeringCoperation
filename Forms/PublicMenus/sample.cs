@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EngineeringCoperation.Forms.AdminMenus
+namespace EngineeringCoperation.Forms.PublicMenus
 {
-    public partial class DashboardPage : UserControl
+    public partial class sample : UserControl
     {
-        public DashboardPage()
+        public sample()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
