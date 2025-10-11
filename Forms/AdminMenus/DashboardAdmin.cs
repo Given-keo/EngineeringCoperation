@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EngineeringCoperation.Forms.AdminMenus
 {
-    public partial class DashboardPage : UserControl
+    public partial class DashboardAdmin : UserControl
     {
-        public DashboardPage()
+        public DashboardAdmin()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
