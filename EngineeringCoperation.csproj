@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Forms\Alerts\" />
-    <Folder Include="Forms\PublicMenus\" />
     <Folder Include="Util\" />
     <Folder Include="Services\" />
   </ItemGroup>
