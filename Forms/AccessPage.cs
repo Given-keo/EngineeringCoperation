@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EngineeringCoperation.Forms
 {
-    public partial class MemberForm : Form
+    public partial class AccessPage : UserControl
     {
-        public MemberForm()
+        public AccessPage()
         {
             InitializeComponent();
         }
