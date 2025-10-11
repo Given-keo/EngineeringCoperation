@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            panelTitle = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            lblBalance = new Label();
+            lblInhouse = new Label();
             label4 = new Label();
             pictureBox2 = new PictureBox();
-            label5 = new Label();
+            lblAccross = new Label();
             label6 = new Label();
             pictureBox3 = new PictureBox();
-            label7 = new Label();
+            lblLoan = new Label();
             label8 = new Label();
             pictureBox4 = new PictureBox();
-            label9 = new Label();
+            lblExchange = new Label();
             label10 = new Label();
             pictureBox5 = new PictureBox();
-            label11 = new Label();
+            lblSaving = new Label();
             label12 = new Label();
             pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -55,12 +55,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // panelTitle
             // 
-            panel1.Location = new Point(21, 38);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(893, 124);
-            panel1.TabIndex = 0;
+            panelTitle.Location = new Point(21, 38);
+            panelTitle.Name = "panelTitle";
+            panelTitle.Size = new Size(893, 124);
+            panelTitle.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -84,29 +84,29 @@
             label1.Text = "Balance";
             label1.Click += label1_Click;
             // 
-            // label2
+            // lblBalance
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Red;
-            label2.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(256, 257);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 31);
-            label2.TabIndex = 7;
-            label2.Text = "0";
+            lblBalance.AutoSize = true;
+            lblBalance.BackColor = Color.Red;
+            lblBalance.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBalance.ForeColor = Color.Transparent;
+            lblBalance.Location = new Point(256, 257);
+            lblBalance.Name = "lblBalance";
+            lblBalance.Size = new Size(27, 31);
+            lblBalance.TabIndex = 7;
+            lblBalance.Text = "0";
             // 
-            // label3
+            // lblInhouse
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Red;
-            label3.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(256, 416);
-            label3.Name = "label3";
-            label3.Size = new Size(27, 31);
-            label3.TabIndex = 10;
-            label3.Text = "0";
+            lblInhouse.AutoSize = true;
+            lblInhouse.BackColor = Color.Red;
+            lblInhouse.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblInhouse.ForeColor = Color.Transparent;
+            lblInhouse.Location = new Point(256, 416);
+            lblInhouse.Name = "lblInhouse";
+            lblInhouse.Size = new Size(27, 31);
+            lblInhouse.TabIndex = 10;
+            lblInhouse.Text = "0";
             // 
             // label4
             // 
@@ -129,17 +129,17 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
-            // label5
+            // lblAccross
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Red;
-            label5.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Transparent;
-            label5.Location = new Point(564, 416);
-            label5.Name = "label5";
-            label5.Size = new Size(27, 31);
-            label5.TabIndex = 16;
-            label5.Text = "0";
+            lblAccross.AutoSize = true;
+            lblAccross.BackColor = Color.Red;
+            lblAccross.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAccross.ForeColor = Color.Transparent;
+            lblAccross.Location = new Point(564, 416);
+            lblAccross.Name = "lblAccross";
+            lblAccross.Size = new Size(27, 31);
+            lblAccross.TabIndex = 16;
+            lblAccross.Text = "0";
             // 
             // label6
             // 
@@ -162,17 +162,17 @@
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
-            // label7
+            // lblLoan
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Red;
-            label7.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Transparent;
-            label7.Location = new Point(564, 257);
-            label7.Name = "label7";
-            label7.Size = new Size(27, 31);
-            label7.TabIndex = 13;
-            label7.Text = "0";
+            lblLoan.AutoSize = true;
+            lblLoan.BackColor = Color.Red;
+            lblLoan.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLoan.ForeColor = Color.Transparent;
+            lblLoan.Location = new Point(564, 257);
+            lblLoan.Name = "lblLoan";
+            lblLoan.Size = new Size(27, 31);
+            lblLoan.TabIndex = 13;
+            lblLoan.Text = "0";
             // 
             // label8
             // 
@@ -195,17 +195,17 @@
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
             // 
-            // label9
+            // lblExchange
             // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Red;
-            label9.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Transparent;
-            label9.Location = new Point(872, 416);
-            label9.Name = "label9";
-            label9.Size = new Size(27, 31);
-            label9.TabIndex = 22;
-            label9.Text = "0";
+            lblExchange.AutoSize = true;
+            lblExchange.BackColor = Color.Red;
+            lblExchange.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblExchange.ForeColor = Color.Transparent;
+            lblExchange.Location = new Point(872, 416);
+            lblExchange.Name = "lblExchange";
+            lblExchange.Size = new Size(27, 31);
+            lblExchange.TabIndex = 22;
+            lblExchange.Text = "0";
             // 
             // label10
             // 
@@ -228,17 +228,17 @@
             pictureBox5.TabIndex = 20;
             pictureBox5.TabStop = false;
             // 
-            // label11
+            // lblSaving
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Red;
-            label11.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.Transparent;
-            label11.Location = new Point(872, 257);
-            label11.Name = "label11";
-            label11.Size = new Size(27, 31);
-            label11.TabIndex = 19;
-            label11.Text = "0";
+            lblSaving.AutoSize = true;
+            lblSaving.BackColor = Color.Red;
+            lblSaving.Font = new Font("Segoe UI Emoji", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSaving.ForeColor = Color.Transparent;
+            lblSaving.Location = new Point(872, 257);
+            lblSaving.Name = "lblSaving";
+            lblSaving.Size = new Size(27, 31);
+            lblSaving.TabIndex = 19;
+            lblSaving.Text = "0";
             // 
             // label12
             // 
@@ -265,25 +265,25 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label9);
+            Controls.Add(lblExchange);
             Controls.Add(label10);
             Controls.Add(pictureBox5);
-            Controls.Add(label11);
+            Controls.Add(lblSaving);
             Controls.Add(label12);
             Controls.Add(pictureBox6);
-            Controls.Add(label5);
+            Controls.Add(lblAccross);
             Controls.Add(label6);
             Controls.Add(pictureBox3);
-            Controls.Add(label7);
+            Controls.Add(lblLoan);
             Controls.Add(label8);
             Controls.Add(pictureBox4);
-            Controls.Add(label3);
+            Controls.Add(lblInhouse);
             Controls.Add(label4);
             Controls.Add(pictureBox2);
-            Controls.Add(label2);
+            Controls.Add(lblBalance);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(panelTitle);
             Name = "DashboardPage";
             Size = new Size(946, 479);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -298,23 +298,23 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelTitle;
         private PictureBox pictureBox1;
         private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label lblBalance;
+        private Label lblInhouse;
         private Label label4;
         private PictureBox pictureBox2;
-        private Label label5;
+        private Label lblAccross;
         private Label label6;
         private PictureBox pictureBox3;
-        private Label label7;
+        private Label lblLoan;
         private Label label8;
         private PictureBox pictureBox4;
-        private Label label9;
+        private Label lblExchange;
         private Label label10;
         private PictureBox pictureBox5;
-        private Label label11;
+        private Label lblSaving;
         private Label label12;
         private PictureBox pictureBox6;
     }
