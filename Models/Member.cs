@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//safrizalR
+
 namespace EngineeringCoperation.Models
 {
     public class Member
