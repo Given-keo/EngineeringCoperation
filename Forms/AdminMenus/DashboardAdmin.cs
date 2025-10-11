@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EngineeringCoperation.Forms
+namespace EngineeringCoperation.Forms.AdminMenus
 {
-    public partial class MemberForm : Form
+    public partial class DashboardAdmin : UserControl
     {
-        public MemberForm()
+        public DashboardAdmin()
         {
             InitializeComponent();
         }
