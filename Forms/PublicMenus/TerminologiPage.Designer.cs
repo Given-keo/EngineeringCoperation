@@ -31,9 +31,9 @@
             lblTermin1 = new Label();
             lblTermin2 = new Label();
             lblTermin3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            lblExchange = new Label();
+            lblInhouse = new Label();
+            lblAccross = new Label();
             SuspendLayout();
             // 
             // lblTermin1
@@ -63,45 +63,46 @@
             lblTermin3.TabIndex = 2;
             lblTermin3.Text = "...";
             // 
-            // label4
+            // lblExchange
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(62, 416);
-            label4.Name = "label4";
-            label4.Size = new Size(109, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Exchange Rate:";
+            lblExchange.AutoSize = true;
+            lblExchange.Location = new Point(62, 416);
+            lblExchange.Name = "lblExchange";
+            lblExchange.Size = new Size(109, 20);
+            lblExchange.TabIndex = 3;
+            lblExchange.Text = "Exchange Rate:";
             // 
-            // label5
+            // lblInhouse
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(305, 416);
-            label5.Name = "label5";
-            label5.Size = new Size(90, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Inhouse Fee:";
+            lblInhouse.AutoSize = true;
+            lblInhouse.Location = new Point(305, 416);
+            lblInhouse.Name = "lblInhouse";
+            lblInhouse.Size = new Size(90, 20);
+            lblInhouse.TabIndex = 4;
+            lblInhouse.Text = "Inhouse Fee:";
             // 
-            // label6
+            // lblAccross
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(547, 416);
-            label6.Name = "label6";
-            label6.Size = new Size(89, 20);
-            label6.TabIndex = 5;
-            label6.Text = "Accross Fee:";
+            lblAccross.AutoSize = true;
+            lblAccross.Location = new Point(547, 416);
+            lblAccross.Name = "lblAccross";
+            lblAccross.Size = new Size(89, 20);
+            lblAccross.TabIndex = 5;
+            lblAccross.Text = "Accross Fee:";
             // 
             // TerminologiPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(lblAccross);
+            Controls.Add(lblInhouse);
+            Controls.Add(lblExchange);
             Controls.Add(lblTermin3);
             Controls.Add(lblTermin2);
             Controls.Add(lblTermin1);
             Name = "TerminologiPage";
             Size = new Size(779, 522);
+            Load += TerminologiPage_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,8 +112,8 @@
         private Label lblTermin1;
         private Label lblTermin2;
         private Label lblTermin3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label lblExchange;
+        private Label lblInhouse;
+        private Label lblAccross;
     }
 }
