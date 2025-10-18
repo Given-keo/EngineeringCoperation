@@ -6,15 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BraveHeroCooperation.Models
+namespace EngineeringCoperation.Models
 {
-    public class Installment
+    internal class Installment
     {
         public int Id { get; set; }
-        [Required] public int LoanId { get; set; }
+
+        [Required]
+        public int LoanId { get; set; }
+
         public Loan Loan { get; set; }
-        [Required] public decimal amount { get; set; }
+
+        [Required]
+        public decimal Amount { get; set; }
+
         public DateTime PaymentDate { get; set; } = DateTime.UtcNow;
+
         public string? ProofPath { get; set; }
     }
 }
