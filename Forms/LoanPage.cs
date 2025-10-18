@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BraveHeroCooperation.Forms.MemberMenus
-{
+{ 
     public partial class LoanPage : UserControl
     {
         Member loggedMember;
