@@ -36,5 +36,10 @@ namespace EngineeringCoperation.Forms.PublicMenus
         {
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
