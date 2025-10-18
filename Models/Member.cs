@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
+//safrizalR
+
 namespace EngineeringCoperation.Models
 {
     public class Member
