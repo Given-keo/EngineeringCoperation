@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngineeringCoperation.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace EngineeringCoperation.Forms.AdminMenus
 {
     public partial class DashboardAdmin : UserControl
     {
-        public DashboardAdmin()
+        private Member? loggedMember;
+        public DashboardAdmin(Member? member)
         {
+            loggedMember = member;
             InitializeComponent();
+        }
+
+        private void DashboardAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
