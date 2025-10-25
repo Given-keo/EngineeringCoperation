@@ -40,10 +40,5 @@ namespace EngineeringCoperation.Models
 
         public ICollection<Exchange> Exchanges { get; set; }
 
-
-
-
-        [Required, MaxLength(4000)] public string Question1 { get; set; } = null!;
-        [Required, MaxLength(4000)] public string Question2 { get; set; } = null!;
     }
 }

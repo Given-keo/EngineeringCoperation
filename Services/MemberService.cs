@@ -1,6 +1,7 @@
 ﻿
 using EngineeringCoperation.Data;
 using EngineeringCoperation.Forms;
+using EngineeringCoperation.Models;
 
 namespace EngineeringCoperation.Services
 {
@@ -20,12 +21,12 @@ namespace EngineeringCoperation.Services
             return list;
         }
 
-        public member? FindById(int id)
+        public Member? FindById(int id)
         {
             return _db.Members.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<member> SetGrid()
+        public List<Member> SetGrid()
         {
             return _db.Members.OrderByDescending(m => m.ModDate).ToList<Member>();
         }

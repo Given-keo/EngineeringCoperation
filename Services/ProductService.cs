@@ -20,12 +20,12 @@ namespace EngineeringCoperation.Services
 
         public List<LoanMaster> LoadLoanGrid()
         {
-            return db.LoanMasters.OrderByDescending(x => x.UpdateOn).ToList();
+            return db.LoanMasters.OrderByDescending(x => x.updateOn).ToList();
         }
 
         public List<SavingMaster> LoadSavingGrid()
         {
-            return db.SavingMasters.OrderByDescending(x => x.UpdateOn).ToList();
+            return db.SavingMasters.OrderByDescending(x => x.updateOn).ToList();
         }
 
         public async Task SaveOrUpdateLoan(string id, string name, string minfine, string maxfine, string interest)
@@ -35,10 +35,10 @@ namespace EngineeringCoperation.Services
                 LoanMaster loan = new LoanMaster
                 {
                     Name = name,
-                    MinFine = Convert.ToDecimal(minfine),
-                    MaxFine = Convert.ToDecimal(maxfine),
+                    //MinFine = Convert.ToDecimal(minfine),
+                    //MaxFine = Convert.ToDecimal(maxfine),
                     Interest = Convert.ToDecimal(interest),
-                    UpdateOn = DateTime.Now
+                    //UpdateOn = DateTime.Now
                 };
                 db.LoanMasters.Add(loan);
             }
@@ -46,10 +46,10 @@ namespace EngineeringCoperation.Services
             {
                 var loan = db.LoanMasters.Find(Convert.ToInt32(id.Trim()));
                 loan.Name = name;
-                loan.MinFine = Convert.ToDecimal(minfine);
-                loan.MaxFine = Convert.ToDecimal(maxfine);
+                //loan.MinFine = Convert.ToDecimal(minfine);
+                //loan.MaxFine = Convert.ToDecimal(maxfine);
                 loan.Interest = Convert.ToDecimal(interest);
-                loan.UpdateOn = DateTime.Now;
+                //loan.UpdateOn = DateTime.Now;
                 db.LoanMasters.Update(loan);
             }
             await db.SaveChangesAsync();
@@ -62,10 +62,10 @@ namespace EngineeringCoperation.Services
                 SavingMaster saving = new SavingMaster
                 {
                     Name = name,
-                    MinFine = Convert.ToDecimal(minfine),
-                    MaxFine = Convert.ToDecimal(maxfine),
+                    //MinFine = Convert.ToDecimal(minfine),
+                    //MaxFine = Convert.ToDecimal(maxfine),
                     Interest = Convert.ToDecimal(interest),
-                    UpdateOn = DateTime.Now
+                    //UpdateOn = DateTime.Now
                 };
                 db.SavingMasters.Add(saving);
             }
@@ -73,10 +73,10 @@ namespace EngineeringCoperation.Services
             {
                 var saving = db.SavingMasters.Find(Convert.ToInt32(id.Trim()));
                 saving.Name = name;
-                saving.MinFine = Convert.ToDecimal(minfine);
-                saving.MaxFine = Convert.ToDecimal(maxfine);
+                //saving.MinFine = Convert.ToDecimal(minfine);
+                //saving.MaxFine = Convert.ToDecimal(maxfine);
                 saving.Interest = Convert.ToDecimal(interest);
-                saving.UpdateOn = DateTime.Now;
+                //saving.UpdateOn = DateTime.Now;
                 db.SavingMasters.Update(saving);
             }
             await db.SaveChangesAsync();
@@ -107,7 +107,7 @@ namespace EngineeringCoperation.Services
             {
                 result.Add(new
                 {
-                    id = item.Id,
+                    id = item.id,
                     displayName = $"{item.Name} - {item.Interest} %",
                     type = "Loan"
                 });
@@ -118,7 +118,7 @@ namespace EngineeringCoperation.Services
             {
                 result.Add(new
                 {
-                    id = item.Id,
+                    id = item.id,
                     displayName = $"{item.Name} - {item.Interest} %",
                     type = "Saving"
                 });
