@@ -1,5 +1,4 @@
-﻿
-using EngineeringCoperation.Data;
+﻿using EngineeringCoperation.Data;
 using EngineeringCoperation.Models;
 using Microsoft.EntityFrameworkCore;
 using System;

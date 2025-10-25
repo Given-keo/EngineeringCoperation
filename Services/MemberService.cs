@@ -1,7 +1,6 @@
 ﻿
 using EngineeringCoperation.Data;
 using EngineeringCoperation.Forms;
-using EngineeringCoperation.Models;
 
 namespace EngineeringCoperation.Services
 {
@@ -28,7 +27,7 @@ namespace EngineeringCoperation.Services
 
         public List<member> SetGrid()
         {
-            return _db.Members.OrderByDescending(m => m.ModDate).ToList<member>();
+            return _db.Members.OrderByDescending(m => m.ModDate).ToList<Member>();
         }
 
         public async void Update(Member member)
