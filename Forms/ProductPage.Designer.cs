@@ -81,6 +81,7 @@
             DataGridMasterSaving.RowHeadersWidth = 62;
             DataGridMasterSaving.Size = new Size(435, 225);
             DataGridMasterSaving.TabIndex = 43;
+            DataGridMasterSaving.CellContentClick += DataGridMasterSaving_CellContentClick;
             // 
             // DataGridMasterLoan
             // 
@@ -90,6 +91,7 @@
             DataGridMasterLoan.RowHeadersWidth = 62;
             DataGridMasterLoan.Size = new Size(435, 225);
             DataGridMasterLoan.TabIndex = 42;
+            DataGridMasterLoan.CellContentClick += DataGridMasterLoan_CellContentClick;
             // 
             // LblMasterLoan
             // 
@@ -108,6 +110,7 @@
             BtnNew.TabIndex = 40;
             BtnNew.Text = "New";
             BtnNew.UseVisualStyleBackColor = true;
+            BtnNew.Click += BtnNew_Click;
             // 
             // BtnSubmit
             // 
@@ -276,6 +279,7 @@
             Controls.Add(LblName);
             Name = "ProductPage";
             Size = new Size(934, 552);
+            Load += ProductPage_Load;
             ((System.ComponentModel.ISupportInitialize)DataGridMasterSaving).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGridMasterLoan).EndInit();
             ResumeLayout(false);

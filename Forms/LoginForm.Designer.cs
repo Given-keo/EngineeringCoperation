@@ -46,6 +46,7 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("TT Octosquares Trl Cnd XBd", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblJudul.ForeColor = Color.Honeydew;
             lblJudul.Location = new Point(540, 63);
             lblJudul.Name = "lblJudul";
             lblJudul.Size = new Size(89, 33);
@@ -62,7 +63,6 @@
             LblSign.Size = new Size(35, 32);
             LblSign.TabIndex = 1;
             LblSign.Text = "...";
-            
             // 
             // TxtBUsername
             // 
@@ -101,6 +101,7 @@
             // LblLink
             // 
             LblLink.AutoSize = true;
+            LblLink.LinkColor = Color.Navy;
             LblLink.Location = new Point(623, 288);
             LblLink.Name = "LblLink";
             LblLink.Size = new Size(146, 25);
@@ -111,9 +112,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.blue;
             pictureBox1.Location = new Point(2, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(357, 411);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
@@ -121,6 +124,7 @@
             // 
             LblRegSign.AutoSize = true;
             LblRegSign.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblRegSign.ForeColor = SystemColors.ButtonFace;
             LblRegSign.Location = new Point(419, 348);
             LblRegSign.Name = "LblRegSign";
             LblRegSign.Size = new Size(183, 25);
@@ -131,6 +135,7 @@
             // 
             LblUsername.AutoSize = true;
             LblUsername.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblUsername.ForeColor = SystemColors.ButtonFace;
             LblUsername.Location = new Point(419, 123);
             LblUsername.Name = "LblUsername";
             LblUsername.Size = new Size(96, 25);
@@ -141,6 +146,7 @@
             // 
             LblPassword.AutoSize = true;
             LblPassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblPassword.ForeColor = SystemColors.ButtonFace;
             LblPassword.Location = new Point(419, 185);
             LblPassword.Name = "LblPassword";
             LblPassword.Size = new Size(90, 25);
@@ -151,7 +157,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSteelBlue;
+            BackColor = Color.SteelBlue;
             ClientSize = new Size(800, 450);
             Controls.Add(LblPassword);
             Controls.Add(LblUsername);
@@ -166,6 +172,7 @@
             Controls.Add(lblJudul);
             Name = "LoginForm";
             Text = "LoginForm";
+            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
