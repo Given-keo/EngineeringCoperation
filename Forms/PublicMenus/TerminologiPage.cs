@@ -1,4 +1,6 @@
-﻿using EngineeringCoperation.Models;
+﻿using EngineeringCoperation.Data;
+using EngineeringCoperation.Models;
+using EngineeringCoperation.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +22,7 @@ namespace EngineeringCoperation.Forms.PublicMenus
             InitializeComponent();
         }
         
-private void TerminologiPage_Load(object sender, EventArgs e)
+private async void TerminologiPage_Load(object sender, EventArgs e)
         {
             AppDbContext db = new AppDbContext();
             ConfigurationService service = new ConfigurationService(db);

@@ -46,116 +46,129 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 29);
+            label1.Location = new Point(39, 36);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(101, 20);
+            label1.Size = new Size(120, 25);
             label1.TabIndex = 0;
             label1.Text = "Terminologi 1";
             // 
             // txtTermin1
             // 
-            txtTermin1.Location = new Point(29, 73);
+            txtTermin1.Location = new Point(36, 91);
+            txtTermin1.Margin = new Padding(4);
             txtTermin1.Multiline = true;
             txtTermin1.Name = "txtTermin1";
-            txtTermin1.Size = new Size(215, 266);
+            txtTermin1.Size = new Size(268, 332);
             txtTermin1.TabIndex = 1;
+            txtTermin1.TextChanged += txtTermin1_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 363);
+            label2.Location = new Point(39, 454);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(106, 20);
+            label2.Size = new Size(126, 25);
             label2.TabIndex = 2;
             label2.Text = "Exchange Rate";
             // 
             // txtExchange
             // 
-            txtExchange.Location = new Point(31, 411);
+            txtExchange.Location = new Point(39, 514);
+            txtExchange.Margin = new Padding(4);
             txtExchange.Name = "txtExchange";
-            txtExchange.Size = new Size(215, 27);
+            txtExchange.Size = new Size(268, 31);
             txtExchange.TabIndex = 3;
             txtExchange.TextChanged += textBox2_TextChanged;
             // 
             // txtInhouse
             // 
-            txtInhouse.Location = new Point(328, 411);
+            txtInhouse.Location = new Point(410, 514);
+            txtInhouse.Margin = new Padding(4);
             txtInhouse.Name = "txtInhouse";
-            txtInhouse.Size = new Size(215, 27);
+            txtInhouse.Size = new Size(268, 31);
             txtInhouse.TabIndex = 7;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(328, 363);
+            label3.Location = new Point(410, 454);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(87, 20);
+            label3.Size = new Size(107, 25);
             label3.TabIndex = 6;
             label3.Text = "Inhouse Fee";
             // 
             // txtTermin2
             // 
-            txtTermin2.Location = new Point(326, 73);
+            txtTermin2.Location = new Point(408, 91);
+            txtTermin2.Margin = new Padding(4);
             txtTermin2.Multiline = true;
             txtTermin2.Name = "txtTermin2";
-            txtTermin2.Size = new Size(215, 266);
+            txtTermin2.Size = new Size(268, 332);
             txtTermin2.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(328, 29);
+            label4.Location = new Point(410, 36);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(101, 20);
+            label4.Size = new Size(120, 25);
             label4.TabIndex = 4;
             label4.Text = "Terminologi 2";
             // 
             // txtAccross
             // 
-            txtAccross.Location = new Point(616, 411);
+            txtAccross.Location = new Point(770, 514);
+            txtAccross.Margin = new Padding(4);
             txtAccross.Name = "txtAccross";
-            txtAccross.Size = new Size(215, 27);
+            txtAccross.Size = new Size(268, 31);
             txtAccross.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(616, 363);
+            label5.Location = new Point(770, 454);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(86, 20);
+            label5.Size = new Size(105, 25);
             label5.TabIndex = 10;
             label5.Text = "Accross Fee";
             // 
             // txtTermin3
             // 
-            txtTermin3.Location = new Point(614, 73);
+            txtTermin3.Location = new Point(768, 91);
+            txtTermin3.Margin = new Padding(4);
             txtTermin3.Multiline = true;
             txtTermin3.Name = "txtTermin3";
-            txtTermin3.Size = new Size(215, 266);
+            txtTermin3.Size = new Size(268, 332);
             txtTermin3.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(616, 29);
+            label6.Location = new Point(770, 36);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(101, 20);
+            label6.Size = new Size(120, 25);
             label6.TabIndex = 8;
             label6.Text = "Terminologi 3";
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(383, 463);
+            btnUpdate.Location = new Point(479, 579);
+            btnUpdate.Margin = new Padding(4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.Size = new Size(118, 36);
             btnUpdate.TabIndex = 12;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
-            //btnUpdate.Click += btnUpdate_Click;
             // 
             // ConfigPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnUpdate);
             Controls.Add(txtAccross);
@@ -170,9 +183,9 @@
             Controls.Add(label2);
             Controls.Add(txtTermin1);
             Controls.Add(label1);
+            Margin = new Padding(4);
             Name = "ConfigPage";
-            Size = new Size(906, 516);
-            Load += ConfigPage_Load;
+            Size = new Size(1132, 645);
             ResumeLayout(false);
             PerformLayout();
         }

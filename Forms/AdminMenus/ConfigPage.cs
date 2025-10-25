@@ -26,10 +26,11 @@ namespace EngineeringCoperation.Forms.AdminMenus
 
         }
 
-        private void ConfigPage_Load(object sender, EventArgs e)
+        private async Task ConfigPage_Load(object sender, EventArgs e)
         {
             AppDbContext db = AppDbContext();
             ConfigurationService Service = new ConfigurationService(db);
+            ConfigurationService config = await Service.GetConfig();
             if (config != null)
             {
                 txtTermin1.Text = config.termin1;
@@ -52,6 +53,11 @@ namespace EngineeringCoperation.Forms.AdminMenus
                 txtTermin3.Text, exchangeRate, inhouseFee, accrossFee);
             MessageBox.Show("Configuration updated successfully", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtTermin1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
