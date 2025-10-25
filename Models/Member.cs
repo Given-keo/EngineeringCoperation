@@ -45,7 +45,5 @@ namespace EngineeringCoperation.Models
 
         [Required, MaxLength(4000)] public string Question1 { get; set; } = null!;
         [Required, MaxLength(4000)] public string Question2 { get; set; } = null!;
-
-        public ICollection<Product> Products { get; set; } = new List<Product>()
     }
 }
