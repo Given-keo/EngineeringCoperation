@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EngineeringCoperation.Forms.AdminMenus;
 using EngineeringCoperation.Models;
 
 namespace EngineeringCoperation.Forms
@@ -32,7 +33,7 @@ namespace EngineeringCoperation.Forms
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            route(new DashboardAdminPage(loggedMember));
+            route(new DashboardAdmin(loggedMember));
         }
 
 
@@ -56,7 +57,7 @@ namespace EngineeringCoperation.Forms
 
         private void memberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            route(new MemberPage());
+            route(new member());
         }
 
         private void productToolStripMenuItem_Click(object sender, EventArgs e)

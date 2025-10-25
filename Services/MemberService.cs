@@ -31,9 +31,9 @@ namespace EngineeringCoperation.Services
             return _db.Members.OrderByDescending(m => m.ModDate).ToList<member>();
         }
 
-        public async void Update(member member)
+        public async void Update(Member member)
         {
-            _db.Members.Update(Member);
+            _db.Members.Update(member);
             await _db.SaveChangesAsync();
         }
     }
