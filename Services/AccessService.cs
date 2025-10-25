@@ -1,5 +1,4 @@
-﻿using BraveHeroCooperation.Data;
-using BraveHeroCooperation.Models;
+﻿
 using EngineeringCoperation.Data;
 using EngineeringCoperation.Models;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +30,7 @@ namespace EngineeringCoperation.Services
                     x.Id,
                     DisplayMember = x.Member.MemberId + " - " + x.Member.FullName,
                     x.AccessList,
-                    x.UpdateOn
+                    x.updateOn
                 }).ToList();
             return grid;
         }
@@ -44,7 +43,7 @@ namespace EngineeringCoperation.Services
         public async Task update(Access access, string accessList)
         {
             access.AccessList = accessList;
-            access.UpdateOn = DateTime.UtcNow;
+            access.updateOn = DateTime.UtcNow;
             _db.Update(access);
             await _db.SaveChangesAsync();
         }
@@ -56,7 +55,7 @@ namespace EngineeringCoperation.Services
                 Member = member,
                 AccessList = accessList,
                 MemberId = member.Id,
-                UpdateOn = DateTime.UtcNow
+                updateOn = DateTime.UtcNow
             };
             _db.Add(a);
             await _db.SaveChangesAsync();

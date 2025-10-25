@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EngineeringCoperation.Data;
+using EngineeringCoperation.Models;
+using EngineeringCoperation.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -27,26 +30,26 @@ namespace EngineeringCoperation.Forms.AdminMenus
         {
             AppDbContext db = AppDbContext();
             ConfigurationService Service = new ConfigurationService(db);
-            if (Configuration != null)
+            if (config != null)
             {
                 txtTermin1.Text = config.termin1;
                 txtTermin2.Text = config.termin2;
                 txtTermin3.Text = config.termin3;
                 txtExchange.Text = config.ExchangeRate.ToString();
-                txtInhouse.Text = Configuration.TranferAcrossFee.ToString();
+                txtInhouse.Text = config.TranferAcrossFee.ToString();
             }
         }
 
         private async Task btnUpdate_Click(object sender, EventArgs e)
         {
-            decimal exchangeRate = decimal.Parse(textExchangeRate.Text);
-            decimal inhouseFee = decimal.Parse(textInhouseFee.Text);
-            decimal accrossFee = decimal.Parse(textAccrossFee.Text);
+            decimal exchangeRate = decimal.Parse(txtExchange.Text);
+            decimal inhouseFee = decimal.Parse(txtInhouse.Text);
+            decimal accrossFee = decimal.Parse(txtAccross.Text);
 
             AppDbContext db = new AppDbContext();
             ConfigurationService service = new ConfigurationService(db);
             await service.addOrUpdate(txtTermin1.Text, txtTermin2.Text,
-                txtTermin3, exchangeRate, inhouseFee, accrossFee);
+                txtTermin3.Text, exchangeRate, inhouseFee, accrossFee);
             MessageBox.Show("Configuration updated successfully", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
