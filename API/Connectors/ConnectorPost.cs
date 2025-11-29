@@ -1,4 +1,4 @@
-﻿using BraveHeroCooperation.Api.Models;
+﻿using EngineeringCoperation.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace BraveHeroCooperation.Api.Connectors
+namespace EngineeringCoperation.API.Connectors
 {
     public class ConnectorPost
     {
