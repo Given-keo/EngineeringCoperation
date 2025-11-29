@@ -26,4 +26,9 @@
     <PackageReference Include="Npgsql.RawPostgis" Version="4.1.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="API\Models\" />
+    <Folder Include="API\Connectors\" />
+  </ItemGroup>
+
 </Project>
