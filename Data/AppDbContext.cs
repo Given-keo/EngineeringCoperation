@@ -78,7 +78,7 @@ namespace EngineeringCoperation.Data
                     );
                 }
             }
-            modelBuilder.UserSerialColumns();
+            //modelBuilder.UserSerialColumns();
             base.OnModelCreating(modelBuilder);
         }
     }
