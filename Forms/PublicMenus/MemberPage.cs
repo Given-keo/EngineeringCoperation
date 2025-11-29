@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EngineeringCoperation.Forms.PublicMenus
 {
-    public partial class member : UserControl
+    public partial class MemberPage : UserControl
     {
-        public member()
+        public MemberPage()
         {
             InitializeComponent();
         }

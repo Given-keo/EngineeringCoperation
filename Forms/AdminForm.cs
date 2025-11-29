@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EngineeringCoperation.Models;
+using
 
 namespace EngineeringCoperation.Forms
 {
@@ -66,7 +67,7 @@ namespace EngineeringCoperation.Forms
 
         private void acrossCooperationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            route(new AcrossPage());
+            route(new AccrossPage());
         }
 
         private void approvalToolStripMenuItem_Click(object sender, EventArgs e)

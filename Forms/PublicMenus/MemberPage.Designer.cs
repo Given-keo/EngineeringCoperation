@@ -1,6 +1,6 @@
 ﻿namespace EngineeringCoperation.Forms.PublicMenus
 {
-    partial class member
+    partial class MemberPage
     {
         /// <summary> 
         /// Required designer variable.
