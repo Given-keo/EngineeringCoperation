@@ -15,22 +15,6 @@ namespace EngineeringCoperation.Models
         public int Id { get; set; }
         [Required, MaxLength(100)] public string Username { get; set; }
         [Required] public string PasswordHash { get; set; } = "";
-<<<<<<< HEAD
-        [Required, MaxLength(200)] public string fullName { get; set; } = "";
-        public bool IsActive { get; set; } = true;
-        public DateTime JoinDate { get; set; } = DateTime.UtcNow;
-        public string MemberId { get; set; }
-        public string IdCard { get; set; }
-        public string Address { get; set; }
-
-        public string Phone { get; set; }
-        public string PhoneAlt { get; set; }
-        public string Email { get; set; }
-        public DateTime ModDate { get; set; } 
-        public string Status { get; set; }
-        public string ReferenceId { get; set; }
-        public string level { get; set; }
-=======
         [Required, MaxLength(200)] public string FullName { get; set; } = "";
         public bool IsActive { get; set; } = true;
         public DateTime JoinDate { get; set; } = DateTime.UtcNow;
@@ -52,16 +36,9 @@ namespace EngineeringCoperation.Models
         public ICollection<Access> Accesses { get; set; } = new List<Access>();
         public ICollection<Saving> Savings { get; set; } = new List<Saving>();
         public ICollection<Inhouse> OriginTransactions { get; set; }
-        public ICollection<Inhouse> DestinationTransaction { get; set; }
+        public ICollection<Inhouse> DestinationTransactions { get; set; }
 
         public ICollection<Exchange> Exchanges { get; set; }
->>>>>>> 7533bf9697e8940b39ba13359d0ba0f5908c112d
 
-
-
-        [Required, MaxLength(4000)] public string Question1 { get; set; } = null!;
-        [Required, MaxLength(4000)] public string Question2 { get; set; } = null!;
-
-        public ICollection<Product> Products { get; set; } = new List<Product>()
     }
 }

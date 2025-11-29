@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EngineeringCoperation.Models
 {
-    internal class Installment
+    public class Installment
     {
         public int Id { get; set; }
 

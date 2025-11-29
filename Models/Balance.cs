@@ -9,7 +9,7 @@ namespace EngineeringCoperation.Models
 {
     public class Balance
     {
-        public int Id { get; set; }
+        public int Id { get; set; } 
         public String MemberCode { get; set; }
         public decimal Amount { get; set; }
         public DateTime UpdateOn { get; set; }
