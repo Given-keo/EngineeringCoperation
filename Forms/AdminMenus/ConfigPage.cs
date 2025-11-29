@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+using EngineeringCoperation.Data;
+using EngineeringCoperation.Models;
+using EngineeringCoperation.Services;
+using System.CodeDom;
 
 namespace EngineeringCoperation.Forms.AdminMenus
 {
@@ -23,17 +18,19 @@ namespace EngineeringCoperation.Forms.AdminMenus
 
         }
 
-        private void ConfigPage_Load(object sender, EventArgs e)
+        private async void ConfigPage_Load(object sender, EventArgs e)
         {
-            AppDbContext db = AppDbContext();
+            AppDbContext db = new AppDbContext();
             ConfigurationService Service = new ConfigurationService(db);
-            if (Configuration != null)
+            Configuration config = await Service.GetConfig();
+            if (config != null)
             {
-                txtTermin1.Text = config.termin1;
-                txtTermin2.Text = config.termin2;
-                txtTermin3.Text = config.termin3;
-                txtExchange.Text = config.ExchangeRate.ToString();
-                txtInhouse.Text = Configuration.TranferAcrossFee.ToString();
+                txtTermin1.Text = config.terminologi1;
+                txtTermin2.Text = config.terminologi2;
+                txtTermin3.Text = config.terminologi3;
+                textExchangeRate.Text = config.exchangeRate.ToString();
+                textInhouseFee.Text = config.transferInhouseFee.ToString();
+                textInhouseFee.Text = config.transferAcrossFee.ToString();
             }
         }
 
@@ -46,7 +43,7 @@ namespace EngineeringCoperation.Forms.AdminMenus
             AppDbContext db = new AppDbContext();
             ConfigurationService service = new ConfigurationService(db);
             await service.addOrUpdate(txtTermin1.Text, txtTermin2.Text,
-                txtTermin3, exchangeRate, inhouseFee, accrossFee);
+                txtTermin3.Text, exchangeRate, inhouseFee, accrossFee);
             MessageBox.Show("Configuration updated successfully", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

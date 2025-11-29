@@ -31,12 +31,12 @@
             label1 = new Label();
             txtTermin1 = new TextBox();
             label2 = new Label();
-            txtExchange = new TextBox();
-            txtInhouse = new TextBox();
+            textExchangeRate = new TextBox();
+            textInhouseFee = new TextBox();
             label3 = new Label();
             txtTermin2 = new TextBox();
             label4 = new Label();
-            txtAccross = new TextBox();
+            textAccrossFee = new TextBox();
             label5 = new Label();
             txtTermin3 = new TextBox();
             label6 = new Label();
@@ -69,20 +69,20 @@
             label2.TabIndex = 2;
             label2.Text = "Exchange Rate";
             // 
-            // txtExchange
+            // textExchangeRate
             // 
-            txtExchange.Location = new Point(31, 411);
-            txtExchange.Name = "txtExchange";
-            txtExchange.Size = new Size(215, 27);
-            txtExchange.TabIndex = 3;
-            txtExchange.TextChanged += textBox2_TextChanged;
+            textExchangeRate.Location = new Point(31, 411);
+            textExchangeRate.Name = "textExchangeRate";
+            textExchangeRate.Size = new Size(215, 27);
+            textExchangeRate.TabIndex = 3;
+            textExchangeRate.TextChanged += textBox2_TextChanged;
             // 
-            // txtInhouse
+            // textInhouseFee
             // 
-            txtInhouse.Location = new Point(328, 411);
-            txtInhouse.Name = "txtInhouse";
-            txtInhouse.Size = new Size(215, 27);
-            txtInhouse.TabIndex = 7;
+            textInhouseFee.Location = new Point(328, 411);
+            textInhouseFee.Name = "textInhouseFee";
+            textInhouseFee.Size = new Size(215, 27);
+            textInhouseFee.TabIndex = 7;
             // 
             // label3
             // 
@@ -110,12 +110,12 @@
             label4.TabIndex = 4;
             label4.Text = "Terminologi 2";
             // 
-            // txtAccross
+            // textAccrossFee
             // 
-            txtAccross.Location = new Point(616, 411);
-            txtAccross.Name = "txtAccross";
-            txtAccross.Size = new Size(215, 27);
-            txtAccross.TabIndex = 11;
+            textAccrossFee.Location = new Point(616, 411);
+            textAccrossFee.Name = "textAccrossFee";
+            textAccrossFee.Size = new Size(215, 27);
+            textAccrossFee.TabIndex = 11;
             // 
             // label5
             // 
@@ -151,22 +151,21 @@
             btnUpdate.TabIndex = 12;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
-            //btnUpdate.Click += btnUpdate_Click;
             // 
             // ConfigPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnUpdate);
-            Controls.Add(txtAccross);
+            Controls.Add(textAccrossFee);
             Controls.Add(label5);
             Controls.Add(txtTermin3);
             Controls.Add(label6);
-            Controls.Add(txtInhouse);
+            Controls.Add(textInhouseFee);
             Controls.Add(label3);
             Controls.Add(txtTermin2);
             Controls.Add(label4);
-            Controls.Add(txtExchange);
+            Controls.Add(textExchangeRate);
             Controls.Add(label2);
             Controls.Add(txtTermin1);
             Controls.Add(label1);
@@ -182,12 +181,12 @@
         private Label label1;
         private TextBox txtTermin1;
         private Label label2;
-        private TextBox txtExchange;
-        private TextBox txtInhouse;
+        private TextBox textExchangeRate;
+        private TextBox textInhouseFee;
         private Label label3;
         private TextBox txtTermin2;
         private Label label4;
-        private TextBox txtAccross;
+        private TextBox textAccrossFee;
         private Label label5;
         private TextBox txtTermin3;
         private Label label6;

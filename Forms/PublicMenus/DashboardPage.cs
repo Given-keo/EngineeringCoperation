@@ -1,4 +1,5 @@
 ﻿using EngineeringCoperation.Models;
+using EngineeringCoperation.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace EngineeringCoperation.Forms.AdminMenus
         private Member loggedMember;
         public DashboardPage(Member member)
         {
-            loggedMember = Member;
+            loggedMember = member;
             InitializeComponent();
         }
 
