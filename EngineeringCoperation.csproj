@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="API\Models\" />
     <Folder Include="API\Connectors\" />
   </ItemGroup>
 
