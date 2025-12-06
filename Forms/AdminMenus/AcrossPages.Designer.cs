@@ -38,7 +38,6 @@
             LblTransfer = new Label();
             TxtTransferRef = new TextBox();
             LblRemarks = new Label();
-            contextMenuStrip1 = new ContextMenuStrip(components);
             TxtRemarks = new TextBox();
             BtnSubmit = new Button();
             BtnClear = new Button();
@@ -46,6 +45,7 @@
             dataGridOutgoing = new DataGridView();
             LblBecoming = new Label();
             LblOutgoing = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dataGridBecoming).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridOutgoing).BeginInit();
             SuspendLayout();
@@ -123,12 +123,6 @@
             LblRemarks.Size = new Size(79, 25);
             LblRemarks.TabIndex = 9;
             LblRemarks.Text = "Remarks";
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // TxtRemarks
             // 
@@ -231,7 +225,6 @@
         private Label LblTransfer;
         private TextBox TxtTransferRef;
         private Label LblRemarks;
-        private ContextMenuStrip contextMenuStrip1;
         private TextBox TxtRemarks;
         private Button BtnSubmit;
         private Button BtnClear;
@@ -239,5 +232,6 @@
         private DataGridView dataGridOutgoing;
         private Label LblBecoming;
         private Label LblOutgoing;
+        private System.Windows.Forms.Timer timer1;
     }
 }
