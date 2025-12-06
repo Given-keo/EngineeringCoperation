@@ -140,6 +140,7 @@
             BtnSubmit.TabIndex = 12;
             BtnSubmit.Text = "Submit";
             BtnSubmit.UseVisualStyleBackColor = true;
+            BtnSubmit.Click += this.BtnSubmit_Click;
             // 
             // BtnClear
             // 
@@ -186,7 +187,7 @@
             LblOutgoing.TabIndex = 17;
             LblOutgoing.Text = "Outgoing";
             // 
-            // AcrossPages
+            // AcrossTransferPages
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -206,7 +207,7 @@
             Controls.Add(TxtBeneficiary);
             Controls.Add(LblBalance);
             Controls.Add(TxtBalance);
-            Name = "AcrossPages";
+            Name = "AcrossTransferPages";
             Size = new Size(797, 452);
             ((System.ComponentModel.ISupportInitialize)dataGridBecoming).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridOutgoing).EndInit();
