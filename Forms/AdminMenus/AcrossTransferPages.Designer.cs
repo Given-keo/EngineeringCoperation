@@ -41,12 +41,12 @@
             TxtRemarks = new TextBox();
             BtnSubmit = new Button();
             BtnClear = new Button();
-            dataGridBecoming = new DataGridView();
+            dataGridIncoming = new DataGridView();
             dataGridOutgoing = new DataGridView();
-            LblBecoming = new Label();
+            LblIncoming = new Label();
             LblOutgoing = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)dataGridBecoming).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridIncoming).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridOutgoing).BeginInit();
             SuspendLayout();
             // 
@@ -151,14 +151,14 @@
             BtnClear.Text = "Clear";
             BtnClear.UseVisualStyleBackColor = true;
             // 
-            // dataGridBecoming
+            // dataGridIncoming
             // 
-            dataGridBecoming.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridBecoming.Location = new Point(417, 64);
-            dataGridBecoming.Name = "dataGridBecoming";
-            dataGridBecoming.RowHeadersWidth = 62;
-            dataGridBecoming.Size = new Size(332, 141);
-            dataGridBecoming.TabIndex = 14;
+            dataGridIncoming.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridIncoming.Location = new Point(417, 64);
+            dataGridIncoming.Name = "dataGridIncoming";
+            dataGridIncoming.RowHeadersWidth = 62;
+            dataGridIncoming.Size = new Size(332, 141);
+            dataGridIncoming.TabIndex = 14;
             // 
             // dataGridOutgoing
             // 
@@ -169,14 +169,14 @@
             dataGridOutgoing.Size = new Size(332, 141);
             dataGridOutgoing.TabIndex = 15;
             // 
-            // LblBecoming
+            // LblIncoming
             // 
-            LblBecoming.AutoSize = true;
-            LblBecoming.Location = new Point(417, 31);
-            LblBecoming.Name = "LblBecoming";
-            LblBecoming.Size = new Size(91, 25);
-            LblBecoming.TabIndex = 16;
-            LblBecoming.Text = "Becoming";
+            LblIncoming.AutoSize = true;
+            LblIncoming.Location = new Point(417, 31);
+            LblIncoming.Name = "LblIncoming";
+            LblIncoming.Size = new Size(91, 25);
+            LblIncoming.TabIndex = 16;
+            LblIncoming.Text = "Becoming";
             // 
             // LblOutgoing
             // 
@@ -192,9 +192,9 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(LblOutgoing);
-            Controls.Add(LblBecoming);
+            Controls.Add(LblIncoming);
             Controls.Add(dataGridOutgoing);
-            Controls.Add(dataGridBecoming);
+            Controls.Add(dataGridIncoming);
             Controls.Add(BtnClear);
             Controls.Add(BtnSubmit);
             Controls.Add(TxtRemarks);
@@ -209,7 +209,7 @@
             Controls.Add(TxtBalance);
             Name = "AcrossTransferPages";
             Size = new Size(797, 452);
-            ((System.ComponentModel.ISupportInitialize)dataGridBecoming).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridIncoming).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridOutgoing).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -229,9 +229,9 @@
         private TextBox TxtRemarks;
         private Button BtnSubmit;
         private Button BtnClear;
-        private DataGridView dataGridBecoming;
+        private DataGridView dataGridIncoming;
         private DataGridView dataGridOutgoing;
-        private Label LblBecoming;
+        private Label LblIncoming;
         private Label LblOutgoing;
         private System.Windows.Forms.Timer timer1;
     }
