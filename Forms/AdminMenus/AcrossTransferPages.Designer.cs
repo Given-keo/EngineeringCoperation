@@ -1,6 +1,6 @@
 ﻿namespace EngineeringCoperation.Forms.AdminMenus
 {
-    partial class AcrossPages
+    partial class AcrossTransferPages
     {
         /// <summary> 
         /// Required designer variable.

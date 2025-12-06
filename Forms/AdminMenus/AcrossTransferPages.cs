@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EngineeringCoperation.Forms.AdminMenus
 {
-    public partial class AcrossPages : UserControl
+    public partial class AcrossTransferPages : UserControl
     {
-        public AcrossPages()
+        public AcrossTransferPages()
         {
             InitializeComponent();
         }
