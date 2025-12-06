@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include="API\Models\" />
     <Folder Include="API\Connectors\" />
+    <Folder Include="Admin\" />
   </ItemGroup>
 
 </Project>
