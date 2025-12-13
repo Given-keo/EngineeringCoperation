@@ -32,15 +32,15 @@
             lbl_3 = new Label();
             dgvTransfer = new DataGridView();
             dgvBalance = new DataGridView();
-            lbl_2 = new Label();
-            dgvCoop = new DataGridView();
-            lbl_1 = new Label();
-            CoopCode = new DataGridViewTextBoxColumn();
-            CoodName = new DataGridViewTextBoxColumn();
-            CoodAddress = new DataGridViewTextBoxColumn();
             MemberCode = new DataGridViewTextBoxColumn();
             MemberName = new DataGridViewTextBoxColumn();
             MemberBalance = new DataGridViewTextBoxColumn();
+            lbl_2 = new Label();
+            dgvCoop = new DataGridView();
+            CoopCode = new DataGridViewTextBoxColumn();
+            CoodName = new DataGridViewTextBoxColumn();
+            CoodAddress = new DataGridViewTextBoxColumn();
+            lbl_1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvTransfer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvBalance).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).BeginInit();
@@ -83,6 +83,27 @@
             dgvBalance.Size = new Size(514, 268);
             dgvBalance.TabIndex = 10;
             // 
+            // MemberCode
+            // 
+            MemberCode.HeaderText = "Code";
+            MemberCode.MinimumWidth = 8;
+            MemberCode.Name = "MemberCode";
+            MemberCode.Width = 150;
+            // 
+            // MemberName
+            // 
+            MemberName.HeaderText = "Name";
+            MemberName.MinimumWidth = 8;
+            MemberName.Name = "MemberName";
+            MemberName.Width = 150;
+            // 
+            // MemberBalance
+            // 
+            MemberBalance.HeaderText = "Balance";
+            MemberBalance.MinimumWidth = 8;
+            MemberBalance.Name = "MemberBalance";
+            MemberBalance.Width = 150;
+            // 
             // lbl_2
             // 
             lbl_2.AutoSize = true;
@@ -102,15 +123,6 @@
             dgvCoop.Size = new Size(508, 268);
             dgvCoop.TabIndex = 8;
             dgvCoop.CellContentClick += dgvCoop_CellContentClick;
-            // 
-            // lbl_1
-            // 
-            lbl_1.AutoSize = true;
-            lbl_1.Location = new Point(45, 32);
-            lbl_1.Name = "lbl_1";
-            lbl_1.Size = new Size(56, 25);
-            lbl_1.TabIndex = 7;
-            lbl_1.Text = "Coop";
             // 
             // CoopCode
             // 
@@ -133,26 +145,14 @@
             CoodAddress.Name = "CoodAddress";
             CoodAddress.Width = 150;
             // 
-            // MemberCode
+            // lbl_1
             // 
-            MemberCode.HeaderText = "Code";
-            MemberCode.MinimumWidth = 8;
-            MemberCode.Name = "MemberCode";
-            MemberCode.Width = 150;
-            // 
-            // MemberName
-            // 
-            MemberName.HeaderText = "Name";
-            MemberName.MinimumWidth = 8;
-            MemberName.Name = "MemberName";
-            MemberName.Width = 150;
-            // 
-            // MemberBalance
-            // 
-            MemberBalance.HeaderText = "Balance";
-            MemberBalance.MinimumWidth = 8;
-            MemberBalance.Name = "MemberBalance";
-            MemberBalance.Width = 150;
+            lbl_1.AutoSize = true;
+            lbl_1.Location = new Point(45, 32);
+            lbl_1.Name = "lbl_1";
+            lbl_1.Size = new Size(56, 25);
+            lbl_1.TabIndex = 7;
+            lbl_1.Text = "Coop";
             // 
             // AccrossPage
             // 
@@ -167,6 +167,7 @@
             Controls.Add(lbl_1);
             Name = "AccrossPage";
             Size = new Size(1209, 705);
+            Load += AccrossPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTransfer).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvBalance).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCoop).EndInit();

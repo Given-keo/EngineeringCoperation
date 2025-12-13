@@ -94,5 +94,10 @@ namespace EngineeringCoperation.Forms.AdminMenus
         {
 
         }
+
+        private void AccrossPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
