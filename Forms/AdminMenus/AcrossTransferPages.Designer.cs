@@ -174,9 +174,9 @@
             LblIncoming.AutoSize = true;
             LblIncoming.Location = new Point(417, 31);
             LblIncoming.Name = "LblIncoming";
-            LblIncoming.Size = new Size(91, 25);
+            LblIncoming.Size = new Size(87, 25);
             LblIncoming.TabIndex = 16;
-            LblIncoming.Text = "Becoming";
+            LblIncoming.Text = "Incoming";
             // 
             // LblOutgoing
             // 
