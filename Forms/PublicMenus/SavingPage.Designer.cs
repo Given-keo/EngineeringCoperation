@@ -60,13 +60,13 @@
             this.BtnShowSlip = new Button();
             BtnBrowseSlip = new Button();
             BtnApplySaving = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridSaving = new DataGridView();
             label1 = new Label();
             BtnNewSaving = new Button();
             BtnReload = new Button();
             ComboSavingType = new ComboBox();
-            LblSign = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            LblID = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridSaving).BeginInit();
             SuspendLayout();
             // 
             // LblSavingId
@@ -343,15 +343,15 @@
             BtnApplySaving.Text = "Apply Saving";
             BtnApplySaving.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridSaving
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(636, 46);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(517, 469);
-            dataGridView1.TabIndex = 43;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridSaving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridSaving.Location = new Point(636, 46);
+            dataGridSaving.Name = "dataGridSaving";
+            dataGridSaving.RowHeadersWidth = 62;
+            dataGridSaving.Size = new Size(517, 469);
+            dataGridSaving.TabIndex = 43;
+            dataGridSaving.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -388,25 +388,25 @@
             ComboSavingType.Size = new Size(208, 33);
             ComboSavingType.TabIndex = 47;
             // 
-            // LblSign
+            // LblID
             // 
-            LblSign.AutoSize = true;
-            LblSign.Location = new Point(258, 18);
-            LblSign.Name = "LblSign";
-            LblSign.Size = new Size(24, 25);
-            LblSign.TabIndex = 48;
-            LblSign.Text = "...";
+            LblID.AutoSize = true;
+            LblID.Location = new Point(258, 18);
+            LblID.Name = "LblID";
+            LblID.Size = new Size(24, 25);
+            LblID.TabIndex = 48;
+            LblID.Text = "...";
             // 
             // SavingPage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(LblSign);
+            Controls.Add(LblID);
             Controls.Add(ComboSavingType);
             Controls.Add(BtnReload);
             Controls.Add(BtnNewSaving);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridSaving);
             Controls.Add(BtnApplySaving);
             Controls.Add(this.BtnShowSlip);
             Controls.Add(BtnBrowseSlip);
@@ -442,7 +442,7 @@
             Name = "SavingPage";
             Size = new Size(1182, 666);
             Load += SavingPage_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridSaving).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -482,11 +482,11 @@
         private Button BtnShowKK;
         private Button BtnBrowseSlip;
         private Button BtnApplySaving;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridSaving;
         private Label label1;
         private Button BtnNewSaving;
         private Button BtnReload;
         private ComboBox ComboSavingType;
-        private Label LblSign;
+        private Label LblID;
     }
 }

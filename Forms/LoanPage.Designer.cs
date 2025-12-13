@@ -67,7 +67,7 @@
             btnReload = new Button();
             labelID = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridLoan).BeginInit();
-            SuspendLayout();
+            //SuspendLayout();
             // 
             // txtLoanId
             // 
