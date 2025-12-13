@@ -32,7 +32,7 @@ namespace EngineeringCoperation.Forms.PublicMenus
 
         }
 
-        private void member_Load(object sender, EventArgs e)
+        private void MemberPage_Load(object sender, EventArgs e)
         {
 
         }

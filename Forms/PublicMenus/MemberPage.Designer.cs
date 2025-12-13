@@ -271,7 +271,7 @@
             Controls.Add(label);
             Name = "member";
             Size = new Size(1278, 670);
-            Load += member_Load;
+            Load += MemberPage_Load;
             ((System.ComponentModel.ISupportInitialize)datagridmember).EndInit();
             ResumeLayout(false);
             PerformLayout();
