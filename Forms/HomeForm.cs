@@ -1,4 +1,5 @@
-﻿using EngineeringCoperation.Models;
+﻿using EngineeringCoperation.Forms.PublicMenus;
+using EngineeringCoperation.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -148,5 +149,10 @@ namespace EngineeringCoperation.Forms
             route(new LoanPage(loggedMember));
         }
 
+        private void exchangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Text = title + "<< Exchange Transfer Page >>";
+            route(new ExchangePage(loggedMember));
+        }
     }
 }

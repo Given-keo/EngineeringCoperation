@@ -30,6 +30,8 @@
         {
             menuHome = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            terminologiToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             profileToolStripMenuItem = new ToolStripMenuItem();
             loanToolStripMenuItem = new ToolStripMenuItem();
             savingToolStripMenuItem = new ToolStripMenuItem();
@@ -39,8 +41,6 @@
             exchangeToolStripMenuItem = new ToolStripMenuItem();
             historyToolStripMenuItem = new ToolStripMenuItem();
             panelDisplay = new Panel();
-            terminologiToolStripMenuItem = new ToolStripMenuItem();
-            logoutToolStripMenuItem = new ToolStripMenuItem();
             menuHome.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,6 +60,18 @@
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
+            // 
+            // terminologiToolStripMenuItem
+            // 
+            terminologiToolStripMenuItem.Name = "terminologiToolStripMenuItem";
+            terminologiToolStripMenuItem.Size = new Size(172, 26);
+            terminologiToolStripMenuItem.Text = "Terminologi";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(172, 26);
+            logoutToolStripMenuItem.Text = "Logout";
             // 
             // profileToolStripMenuItem
             // 
@@ -103,6 +115,7 @@
             exchangeToolStripMenuItem.Name = "exchangeToolStripMenuItem";
             exchangeToolStripMenuItem.Size = new Size(86, 24);
             exchangeToolStripMenuItem.Text = "Exchange";
+            exchangeToolStripMenuItem.Click += exchangeToolStripMenuItem_Click;
             // 
             // historyToolStripMenuItem
             // 
@@ -117,18 +130,6 @@
             panelDisplay.Name = "panelDisplay";
             panelDisplay.Size = new Size(917, 479);
             panelDisplay.TabIndex = 1;
-            // 
-            // terminologiToolStripMenuItem
-            // 
-            terminologiToolStripMenuItem.Name = "terminologiToolStripMenuItem";
-            terminologiToolStripMenuItem.Size = new Size(224, 26);
-            terminologiToolStripMenuItem.Text = "Terminologi";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(224, 26);
-            logoutToolStripMenuItem.Text = "Logout";
             // 
             // HomeForm
             // 
