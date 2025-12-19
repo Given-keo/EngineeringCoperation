@@ -1,26 +1,29 @@
-﻿using EngineeringCoperation.Models;
-using EngineeringCoperation.Data;
+﻿using EngineeringCoperation.Data;
 using EngineeringCoperation.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EngineeringCoperation.Services
 {
     public class LoanService
-    {
+    {   
         AppDbContext _db;
-        public LoanService(AppDbContext db)
-        {
+        public LoanService(AppDbContext db) { 
             _db = db;
         }
 
-        public async Task<Loan?> findById(int id)
+        public async Task<Loan?> findById(int id) // search berdasarkan id
         {
             return await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public List<Loan> findByName(String name) // search berdasarkan id
+        {
+            return _db.Loans.Where(x => x.Member.FullName == name).ToList<Loan>();
+        }
+
         public async Task<List<Installment>> LoadInstallmentsGrid(int loanId)
         {
-            return await _db.Installments.Where(x => x.LoanId == loanId)
+            return await _db.Installments.Where(x=> x.LoanId == loanId)
                 .ToListAsync();
         }
 
@@ -32,7 +35,7 @@ namespace EngineeringCoperation.Services
         }
 
         public async Task saveOrUpdate(Member member, string amount, string ktp,
-            string kk, string slip, string dueDate, string interest,
+            string kk, string slip, string dueDate, string interest, 
             string interestFine, string loanId, string tenor, string adminFee)
         {
             int tenorLeft = int.Parse(tenor);
@@ -58,7 +61,6 @@ namespace EngineeringCoperation.Services
                 Outstanding = outstanding,
                 TotalAmount = outstanding + decimal.Parse(adminFee)
             };
-
             _db.Loans.Add(l);
             await _db.SaveChangesAsync();
         }
@@ -97,7 +99,7 @@ namespace EngineeringCoperation.Services
 
         public async void SetApproval(int id, bool isApprove)
         {
-            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
+            Loan? l = await _db.Loans.FirstOrDefaultAsync(x=> x.Id == id);
             if (l != null)
             {
                 l.ApprovedOn = DateTime.UtcNow;
@@ -105,18 +107,16 @@ namespace EngineeringCoperation.Services
                     l.IsApproved = true;
                 else
                     l.IsApproved = false;
-
                 _db.Loans.Update(l);
                 await _db.SaveChangesAsync();
             }
         }
-
         public async Task saveOrUpdateInstallment(int loanId, string amount, string path)
         {
             Installment i = new Installment
             {
                 LoanId = loanId,
-                Amount = decimal.Parse(amount),
+                amount = decimal.Parse(amount),
                 PaymentDate = DateTime.UtcNow,
                 ProofPath = path
             };
@@ -128,7 +128,7 @@ namespace EngineeringCoperation.Services
         {
             decimal payment = decimal.Parse(amount);
             int todaysDate = DateTime.UtcNow.Day;
-            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == idLoan);
+            Loan? l = await _db.Loans.FirstOrDefaultAsync(x=> x.Id == idLoan);
             if (l != null)
             {
                 if (todaysDate > l.DueDate)
@@ -136,7 +136,7 @@ namespace EngineeringCoperation.Services
                     l.Fine = (l.Amount * l.InterestFine) + l.Fine;
                     l.TotalAmount += l.Fine;
                 }
-
+                
                 l.Outstanding -= payment;
                 l.TotalAmount -= payment;
                 if (l.Outstanding <= 0 && l.TotalAmount > 0)

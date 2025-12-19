@@ -1,6 +1,4 @@
-﻿using EngineeringCoperation.Models;
-using EngineeringCoperation.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EngineeringCoperation.Data;
+using EngineeringCoperation.Models;
 
-namespace EngineeringCoperation.Forms.AdminMenus
+namespace EngineeringCoperation.Forms.PublicMenus
 {
     public partial class DashboardPage : UserControl
     {
@@ -21,14 +21,10 @@ namespace EngineeringCoperation.Forms.AdminMenus
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DashboardPage_Load(object sender, EventArgs e)
         {
             AppDbContext db = new AppDbContext();
+
         }
     }
 }

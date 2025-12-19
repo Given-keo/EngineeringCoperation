@@ -78,6 +78,11 @@ namespace EngineeringCoperation.Migrations
                     b.ToTable("Balances");
                 });
 
+            modelBuilder.Entity("EngineeringCoperation.Models.BalanceHistory", b =>
+                {
+                    b.ToTable("BalanceHistories");
+                });
+
             modelBuilder.Entity("EngineeringCoperation.Models.Configuration", b =>
                 {
                     b.Property<int>("Id")
@@ -203,9 +208,6 @@ namespace EngineeringCoperation.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric");
-
                     b.Property<int>("LoanId")
                         .HasColumnType("integer");
 
@@ -214,6 +216,9 @@ namespace EngineeringCoperation.Migrations
 
                     b.Property<string>("ProofPath")
                         .HasColumnType("text");
+
+                    b.Property<decimal>("amount")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -298,11 +303,11 @@ namespace EngineeringCoperation.Migrations
 
             modelBuilder.Entity("EngineeringCoperation.Models.LoanMaster", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("AdminFee")
                         .HasColumnType("numeric");
@@ -330,10 +335,10 @@ namespace EngineeringCoperation.Migrations
                     b.Property<int>("Tenor")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("updateOn")
+                    b.Property<DateTime>("UpdateOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("LoanMasters");
                 });
@@ -428,8 +433,20 @@ namespace EngineeringCoperation.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
+                    b.Property<decimal>("AdminFee")
+                        .HasColumnType("numeric");
+
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
+
+                    b.Property<DateTime?>("ApprovedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("DueDate")
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("Fine")
                         .HasColumnType("numeric");
@@ -440,6 +457,15 @@ namespace EngineeringCoperation.Migrations
                     b.Property<decimal>("InterestFine")
                         .HasColumnType("numeric");
 
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("KkPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("KtpPath")
+                        .HasColumnType("text");
+
                     b.Property<int>("MemberId")
                         .HasColumnType("integer");
 
@@ -448,6 +474,14 @@ namespace EngineeringCoperation.Migrations
 
                     b.Property<int>("SavingId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("SlipGajiPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<DateTime>("TargetDate")
                         .HasColumnType("timestamp with time zone");
@@ -473,11 +507,11 @@ namespace EngineeringCoperation.Migrations
 
             modelBuilder.Entity("EngineeringCoperation.Models.SavingMaster", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("AdminFee")
                         .HasColumnType("numeric");
@@ -505,10 +539,10 @@ namespace EngineeringCoperation.Migrations
                     b.Property<int>("Tenor")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("updateOn")
+                    b.Property<DateTime>("UpdateOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("SavingMasters");
                 });

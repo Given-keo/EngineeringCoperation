@@ -4,7 +4,6 @@ using EngineeringCoperation.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,81 +11,66 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EngineeringCoperation.Forms.PublicMenus
+namespace EngineeringCoperation.Forms.MemberMenus
 {
     public partial class ExchangePage : UserControl
     {
         Member loggedMember;
-        public ExchangePage(Member loggedMember)
+        public ExchangePage(Member member)
         {
+            loggedMember = member;
             InitializeComponent();
-            this.loggedMember = loggedMember;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private async void ExchangePage_Load(object sender, EventArgs e)
         {
-            TxtAmount.Text = "0";
+            txtAmount.Text = "0";
             AppDbContext db = new AppDbContext();
-            ConfigurationService configservice = new ConfigurationService(db);
-            Configuration? config = await configservice.GetConfig();
-            TxtFee.Text = config != null ? config.transferAcrossFee.ToString() : "0";
-            TxtRate.Text = config != null ? config.exchangeRate.ToString() : "0";
+            ConfigurationService configService = new ConfigurationService(db);
+            Configuration? config = await configService.GetConfig();
+            txtFee.Text = config != null ? config.transferAcrossFee.ToString() : "0";
+            txtRate.Text = config != null ? config.exchangeRate.ToString() : "0";
         }
 
-        private void TxtAmount_TextChanged(object sender, EventArgs e)
+        private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                decimal amount = Convert.ToDecimal(TxtAmount);
-                decimal rate = Convert.ToDecimal(TxtRate);
-                decimal fee = Convert.ToDecimal(TxtFee);
+                decimal amount = Convert.ToDecimal(txtAmount.Text);
+                decimal rate = Convert.ToDecimal(txtRate.Text);
+                decimal fee = Convert.ToDecimal(txtFee.Text);
                 decimal total = (amount * rate) + fee;
-                TxtTotal.Text = total.ToString("0.00");
+                txtTotal.Text = total.ToString("0.00");
             }
             catch (Exception)
             {
-                TxtTotal.Text = "0.00";
+                txtTotal.Text = "0.00";
             }
         }
 
-        private void BtnSubmit_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             Exchange exchange = new Exchange
             {
                 MemberId = loggedMember.Id,
                 ExchangeId = Guid.NewGuid().ToString(),
-                Amount = Convert.ToDecimal(TxtAmount.Text),
-                Rate = Convert.ToDecimal(TxtRate.Text),
-                Fee = Convert.ToDecimal(TxtFee.Text),
-                AmountExchanged = Convert.ToDecimal(TxtAmount.Text) * Convert.ToDecimal(TxtRate.Text),
+                Amount = Convert.ToDecimal(txtAmount.Text),
+                Rate = Convert.ToDecimal(txtRate.Text),
+                Fee = Convert.ToDecimal(txtFee.Text),
+                AmountExchanged = Convert.ToDecimal(txtAmount.Text) * Convert.ToDecimal(txtRate.Text),
                 ExchangeDate = DateTime.Now,
-                TotalAmountExchanged = Convert.ToDecimal(TxtTotal.Text)
+                TotalAmountExchanged = Convert.ToDecimal(txtTotal.Text)
             };
-
             AppDbContext db = new AppDbContext();
             ExchangeService exchangeService = new ExchangeService(db);
             exchangeService.save(exchange);
-
-            TxtAmount.Text = "0";
-
-            MessageBox.Show(
-                "Exchange submitted successfully!",
-                "Success",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            txtAmount.Text = "0";
+            MessageBox.Show("Exchange submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void BtnClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            TxtAmount.Text = "0";
+            txtAmount.Text = "0";
         }
-
-        
     }
 }

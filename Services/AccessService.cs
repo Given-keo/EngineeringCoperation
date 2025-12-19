@@ -1,11 +1,11 @@
-﻿using EngineeringCoperation.Data;
-using EngineeringCoperation.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EngineeringCoperation.Data;
+using EngineeringCoperation.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EngineeringCoperation.Services
 {
@@ -27,7 +27,7 @@ namespace EngineeringCoperation.Services
                 .Select(x => new
                 {
                     x.Id,
-                    DisplayMember = x.Member.MemberId + " - " + x.Member.FullName,
+                    DisplayMember = x.Member.MemberId + "-" + x.Member.FullName,
                     x.AccessList,
                     x.updateOn
                 }).ToList();
@@ -36,10 +36,10 @@ namespace EngineeringCoperation.Services
 
         public Access? findByMember(int id)
         {
-            return _db.Accesses.FirstOrDefault(x => x.MemberId == id);
+           return _db.Accesses.FirstOrDefault(x => x.MemberId == id);
         }
 
-        public async Task update(Access access, string accessList)
+        public async Task update(Access access, String accessList)
         {
             access.AccessList = accessList;
             access.updateOn = DateTime.UtcNow;
@@ -47,7 +47,7 @@ namespace EngineeringCoperation.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task newOne(Access? access, Member member, string accessList)
+        public async Task newOne(Access? access, Member member, String accessList)
         {
             var a = new Access
             {

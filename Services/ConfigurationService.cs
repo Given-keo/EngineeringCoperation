@@ -1,5 +1,4 @@
-﻿
-using EngineeringCoperation.Data;
+﻿using EngineeringCoperation.Data;
 using EngineeringCoperation.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +15,7 @@ namespace EngineeringCoperation.Services
             return config;
         }
 
-        public async Task addOrUpdate(string terminologi1, string terminologi2,
+        public async Task addOrUpdate(String terminologi1, string terminologi2,
             string terminologi3, decimal exchangeRate, decimal inhouseFee,
             decimal accrossFee)
         {
@@ -27,7 +26,6 @@ namespace EngineeringCoperation.Services
                 isNew = true;
                 config = new Configuration();
             }
-
             config.terminologi1 = terminologi1;
             config.terminologi2 = terminologi2;
             config.terminologi3 = terminologi3;
@@ -43,6 +41,12 @@ namespace EngineeringCoperation.Services
             {
                 _db.Update(config);
             }
+            await _db.SaveChangesAsync();
+        }
+
+        public async void Update(Configuration config)
+        {
+            _db.Configurations.Update(config);
             await _db.SaveChangesAsync();
         }
     }

@@ -27,9 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\Models\" />
-    <Folder Include="API\Connectors\" />
     <Folder Include="Admin\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

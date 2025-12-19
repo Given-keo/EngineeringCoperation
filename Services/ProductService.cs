@@ -1,130 +1,133 @@
-﻿
-using EngineeringCoperation.Data;
+﻿using EngineeringCoperation.Data;
 using EngineeringCoperation.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace EngineeringCoperation.Services
 {
     public class ProductService
     {
-        private readonly AppDbContext db;
-
-        public ProductService(AppDbContext db)
-        {
-            this.db = db;
+        private AppDbContext _db;
+        public ProductService(AppDbContext db) { 
+            _db = db;
         }
 
         public List<LoanMaster> LoadLoanGrid()
         {
-            return db.LoanMasters.OrderByDescending(x => x.updateOn).ToList();
+            return _db.LoanMasters.OrderByDescending(x=> x.UpdateOn).ToList();
         }
 
         public List<SavingMaster> LoadSavingGrid()
         {
-            return db.SavingMasters.OrderByDescending(x => x.updateOn).ToList();
+            return _db.SavingMasters.OrderByDescending(x => x.UpdateOn).ToList();
         }
 
-        public async Task SaveOrUpdateLoan(string id, string name, string minfine, string maxfine, string interest)
+        public async Task saveOrUpdateLoan(string id, string adminFee, string name, 
+            string fine, string interest, string maxAmount, string minAmount, 
+            string tenor)
         {
-            if (string.IsNullOrEmpty(id))
+            LoanMaster? lm = new LoanMaster();
+            bool isNew = true;
+            if (id != null && id.Trim() != "" && id.Trim() != "...")
             {
-                LoanMaster loan = new LoanMaster
-                {
-                    Name = name,
-                    //MinFine = Convert.ToDecimal(minfine),
-                    //MaxFine = Convert.ToDecimal(maxfine),
-                    Interest = Convert.ToDecimal(interest),
-                    //UpdateOn = DateTime.Now
-                };
-                db.LoanMasters.Add(loan);
+                isNew = false;
+                int idLoanMaster = int.Parse(id);
+                lm = _db.LoanMasters.FirstOrDefault(lm => lm.Id == idLoanMaster);
             }
+
+            lm.UpdateOn = DateTime.UtcNow;
+            lm.Fine = decimal.Parse(fine.Replace(".", ","));
+            lm.Interest = decimal.Parse(interest.Replace(".", ","));
+            lm.AdminFee = decimal.Parse(adminFee);
+            lm.MaxAmount = decimal.Parse(maxAmount);
+            lm.MinAmount = decimal.Parse(minAmount);
+            lm.Name = name;
+            lm.Description = "-";
+            lm.Tenor = int.Parse(tenor);
+
+            if (isNew)
+                _db.LoanMasters.Add(lm);
             else
-            {
-                var loan = db.LoanMasters.Find(Convert.ToInt32(id.Trim()));
-                loan.Name = name;
-                //loan.MinFine = Convert.ToDecimal(minfine);
-                //loan.MaxFine = Convert.ToDecimal(maxfine);
-                loan.Interest = Convert.ToDecimal(interest);
-                //loan.UpdateOn = DateTime.Now;
-                db.LoanMasters.Update(loan);
-            }
-            await db.SaveChangesAsync();
+                _db.LoanMasters.Update(lm);
+            await _db.SaveChangesAsync();
         }
 
-        public async Task SaveOrUpdateSaving(string id, string name, string minfine, string maxfine, string interest)
+        public async Task saveOrUpdateSaving(string id, string adminFee, string name,
+            string fine, string interest, string maxAmount, string minAmount,
+            string tenor)
         {
-            if (string.IsNullOrEmpty(id))
+            SavingMaster? sm = new SavingMaster();
+            bool isNew = true;
+            if (id != null && id.Trim() != "" && id.Trim() != "...")
             {
-                SavingMaster saving = new SavingMaster
-                {
-                    Name = name,
-                    //MinFine = Convert.ToDecimal(minfine),
-                    //MaxFine = Convert.ToDecimal(maxfine),
-                    Interest = Convert.ToDecimal(interest),
-                    //UpdateOn = DateTime.Now
-                };
-                db.SavingMasters.Add(saving);
+                isNew = false;
+                int idSavingMaster = int.Parse(id);
+                sm = _db.SavingMasters.FirstOrDefault(lm => lm.Id == idSavingMaster);
             }
+
+            sm.UpdateOn = DateTime.UtcNow;
+            sm.Fine = decimal.Parse(fine.Replace(".", ","));
+            sm.Interest = decimal.Parse(interest.Replace(".", ","));
+            sm.AdminFee = decimal.Parse(adminFee);
+            sm.MaxAmount = decimal.Parse(maxAmount);
+            sm.MinAmount = decimal.Parse(minAmount);
+            sm.Name = name;
+            sm.Description = "-";
+            sm.Tenor = int.Parse(tenor);
+
+            if (isNew)
+                _db.SavingMasters.Add(sm);
             else
-            {
-                var saving = db.SavingMasters.Find(Convert.ToInt32(id.Trim()));
-                saving.Name = name;
-                //saving.MinFine = Convert.ToDecimal(minfine);
-                //saving.MaxFine = Convert.ToDecimal(maxfine);
-                saving.Interest = Convert.ToDecimal(interest);
-                //saving.UpdateOn = DateTime.Now;
-                db.SavingMasters.Update(saving);
-            }
-            await db.SaveChangesAsync();
+                _db.SavingMasters.Update(sm);
+            await _db.SaveChangesAsync();
         }
 
-        public async Task<string> DeleteLoan(string id)
+        public async Task<LoanMaster?> findLoanById(int id)
         {
-            var loan = db.LoanMasters.Find(Convert.ToInt32(id.Trim()));
-            db.LoanMasters.Remove(loan);
-            await db.SaveChangesAsync();
-            return "done";
+            return await _db.LoanMasters.FirstOrDefaultAsync(lm => lm.Id == id);
         }
 
-        public async Task<string> DeleteSaving(string id)
+        public async Task<SavingMaster?> findSavingById(int id)
         {
-            var saving = db.SavingMasters.Find(Convert.ToInt32(id.Trim()));
-            db.SavingMasters.Remove(saving);
-            await db.SaveChangesAsync();
-            return "done";
+            return await _db.SavingMasters.FirstOrDefaultAsync(lm => lm.Id == id);
         }
 
-        public List<object> GetLoanSavingList()
+        public object SetDropDownLoan()
         {
-            List<object> result = new List<object>();
-
-            var loan = db.LoanMasters.OrderBy(x => x.Name);
-            foreach (var item in loan)
-            {
-                result.Add(new
+            var data = _db.LoanMasters.OrderBy(x=> x.Name)
+                .Select( x=> new
                 {
-                    id = item.id,
-                    displayName = $"{item.Name} - {item.Interest} %",
-                    type = "Loan"
-                });
-            }
+                    x.Id,
+                    DisplayName = x.Name + ", t:" + x.Tenor + "(" +x.Interest + ")"
+                }).ToList();
 
-            var saving = db.SavingMasters.OrderBy(x => x.Name);
-            foreach (var item in saving)
+            var result = new List<object>
             {
-                result.Add(new
-                {
-                    id = item.id,
-                    displayName = $"{item.Name} - {item.Interest} %",
-                    type = "Saving"
-                });
-            }
+                new { Id = 0, DisplayName = "--choose--" }
+            };
 
-            result.Add(new { id = 0, displayName = "-- choose --" });
+            // Gabungkan data asli
+            result.AddRange(data);
+
+            return result;
+        }
+
+        public object SetDropDownSaving()
+        {
+            var data = _db.SavingMasters.OrderBy(x => x.Name)
+                .Select(x => new
+                {
+                    x.Id,
+                    DisplayName = x.Name + ", t:" + x.Tenor + "(" + x.Interest + ")"
+                }).ToList();
+
+            var result = new List<object>
+            {
+                new { Id = 0, DisplayName = "--choose--" }
+            };
+
+            // Gabungkan data asli
+            result.AddRange(data);
+
             return result;
         }
     }

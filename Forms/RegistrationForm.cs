@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
+using EngineeringCoperation.Data;
+using EngineeringCoperation.Forms.Alerts;
+using EngineeringCoperation.Models;
+using EngineeringCoperation.Services;
 
 namespace EngineeringCoperation.Forms
 {
@@ -17,54 +22,32 @@ namespace EngineeringCoperation.Forms
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCard_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             using var db = new AppDbContext();
             var auth = new AuthService(db);
-            var member = auth.RegisterAsync(txtAddress.Text, txtCardId.Text,
-                txtEmail.Text, txtFullName.Text, txtPassword.Text,
-                txtPhone.Text, txtPhoneAlt.Text, txtReferenceId.Text,
-                txtUsername.Text, txtQuestion1.Text, txtQuestion2.Text);
-
+            var member = auth.RegisterAsync(textAddress.Text, textCardId.Text, 
+                textEmail.Text, textFullname.Text, textPassword.Text, 
+                textPhone.Text, textPhoneAlt.Text, textReferenceId.Text, 
+                textUsername.Text, textQuest1.Text, textQuest2.Text);
             if (member != null)
             {
                 this.Hide();
                 LoginForm loginForm = new LoginForm();
                 loginForm.setSuccessAlert("Registration Success! Please Login...");
                 loginForm.ShowDialog();
-            }
-            else
+            } else
             {
                 labelError.Text = "Registration Failed!";
                 labelError.Visible = true;
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void RegistrationForm_Load(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
     }
 }

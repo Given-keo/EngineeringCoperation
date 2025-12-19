@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace EngineeringCoperation.API.Models
+namespace EngineeringCoperation.Api.Models
 {
     public class CoopAcross
     {
@@ -12,6 +13,7 @@ namespace EngineeringCoperation.API.Models
         public string Code { get; set; } = "";
         public string Name { get; set; } = "";
         public string Address { get; set; } = "";
+        public Boolean isDelete { get; set; }
     }
 
     public class MemberAcross
@@ -43,4 +45,6 @@ namespace EngineeringCoperation.API.Models
         public string Remarks { get; set; } = "";
         public string CoopCode { get; set; } = "";
     }
+
+    
 }

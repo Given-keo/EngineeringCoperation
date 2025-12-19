@@ -4,27 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-
-//safrizalR
 
 namespace EngineeringCoperation.Models
 {
     public class Member
     {
         public int Id { get; set; }
-        [Required, MaxLength(100)] public string Username { get; set; }
+        [Required, MaxLength(100)] public string Username {  get; set; }
         [Required] public string PasswordHash { get; set; } = "";
         [Required, MaxLength(200)] public string FullName { get; set; } = "";
         public bool IsActive { get; set; } = true;
         public DateTime JoinDate { get; set; } = DateTime.UtcNow;
-        public string MemberId { get; set; } 
+        public string MemberId { get; set; }
         public string IdCard { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Address { get; set; }  
-        public string PhoneAlt { get; set; } 
-        public DateTime ModDate { get; set; }
+        public string Address { get; set; }
+        public string PhoneAlt {  get; set; }
+        public DateTime ModDate{get; set;}
         public string Status { get; set; }
         public string ReferenceId { get; set; }
         public string level { get; set; }
@@ -39,6 +36,5 @@ namespace EngineeringCoperation.Models
         public ICollection<Inhouse> DestinationTransactions { get; set; }
 
         public ICollection<Exchange> Exchanges { get; set; }
-
     }
 }

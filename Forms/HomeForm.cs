@@ -1,15 +1,10 @@
-﻿using EngineeringCoperation.Forms.PublicMenus;
+﻿using EngineeringCoperation.Api.Connectors;
+using EngineeringCoperation.Api.Models;
+using EngineeringCoperation.Data;
+using EngineeringCoperation.Forms.MemberMenus;
+using EngineeringCoperation.Forms.PublicMenus;
 using EngineeringCoperation.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+using EngineeringCoperation.Services;
 
 namespace EngineeringCoperation.Forms
 {
@@ -17,6 +12,8 @@ namespace EngineeringCoperation.Forms
     {
         Member loggedMember;
         string title;
+        private System.Threading.Timer? balanceTimer;
+        private bool isSyncRunning = false;
         public HomeForm(Member member)
         {
             loggedMember = member;
@@ -25,12 +22,14 @@ namespace EngineeringCoperation.Forms
             title = this.Text;
             route(new DashboardPage(member));
         }
+
         public void route(System.Windows.Forms.Control control)
         {
             this.panelDisplay.Controls.Clear();
             this.panelDisplay.Dock = DockStyle.Fill;
             this.panelDisplay.Controls.Add(control);
         }
+
         public void autoDisableMenu()
         {
             loanToolStripMenuItem.Enabled = false;
@@ -47,6 +46,7 @@ namespace EngineeringCoperation.Forms
             inhouseToolStripMenuItem.ToolTipText = "Disabled";
             acrossCooperationToolStripMenuItem.ToolTipText = "Disabled";
         }
+
         public void grantAllMenu()
         {
             loanToolStripMenuItem.Enabled = true;
@@ -56,15 +56,16 @@ namespace EngineeringCoperation.Forms
             inhouseToolStripMenuItem.Enabled = true;
             acrossCooperationToolStripMenuItem.Enabled = true;
         }
+
         public void grantAccess()
         {
             AppDbContext db = new AppDbContext();
             AccessService accessService = new AccessService(db);
             Access? access = accessService.findByMember(loggedMember.Id);
-
             if (access != null)
             {
                 var listAccess = access.AccessList.Split(",");
+
                 for (int i = 0; i < listAccess.Length; i++)
                 {
                     var accessName = listAccess[i];
@@ -113,16 +114,21 @@ namespace EngineeringCoperation.Forms
 
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
         }
+
         private void HomeForm_Load(object sender, EventArgs e)
         {
             autoDisableMenu();
             grantAccess();
+            StartBackgroundScheduler();
         }
+
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loggedMember = null;
@@ -149,9 +155,62 @@ namespace EngineeringCoperation.Forms
             route(new LoanPage(loggedMember));
         }
 
+        private void acrossCooperationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Text = title + " << Across Transfer Page >>";
+            route(new AcrossTransferPage(loggedMember));
+        }
+
+        private void StartBackgroundScheduler()
+        {
+            if (isSyncRunning) return;
+
+            // Timer jalan tiap 3 detik (3000 ms)
+            balanceTimer = new System.Threading.Timer(async _ => await SyncBalanceAsync(), null, 0, 3000);
+            isSyncRunning = true;
+        }
+
+        private void StopBackgroundScheduler()
+        {
+            balanceTimer?.Dispose();
+            isSyncRunning = false;
+        }
+
+        private async Task SyncBalanceAsync()
+        {
+            try
+            {
+                AppDbContext db = new AppDbContext();
+                BalanceService balanceService = new BalanceService(db);
+                Balance? balance = await balanceService.getBalance(loggedMember.MemberId);
+                if (balance != null)
+                {
+                    Console.WriteLine($"Syncing balance for member {loggedMember.MemberId}: {balance.Amount}");
+                    ConnectorPost connector = new ConnectorPost();
+                    BalanceApiResponse? response = await connector.BalanceUpdateAsync(new BalancePayload
+                    {
+                        amount = Double.Parse(balance.Amount.ToString()),
+                        memberCode = loggedMember.MemberId
+                    });
+                    if (response != null && response.ResponseCode == "00")
+                    {
+                        Console.WriteLine($"Balance sync successful for member {loggedMember.MemberId}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Balance sync failed for member {loggedMember.MemberId}: {response?.ResponseMessage}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sync:" + ex.Message);
+            }
+        }
+
         private void exchangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Text = title + "<< Exchange Transfer Page >>";
+            this.Text = title + " << Exchange Transfer Page >>";
             route(new ExchangePage(loggedMember));
         }
     }
