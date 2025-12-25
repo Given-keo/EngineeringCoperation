@@ -39,10 +39,12 @@ namespace EngineeringCoperation.Forms.MemberMenus
                     {
                         message = await MemberRegistration(db);
                     }
+                    labelMyBenef.Text = "My Benef: " + loadMyBenef();
                     MessageBox.Show(message, "Registration Info", MessageBoxButtons.OK);
                 }
             } else
             {
+                labelMyBenef.Text = "My Benef: " + loadMyBenef();
                 timerInbox.Enabled = true;
             }
         }
@@ -193,6 +195,11 @@ namespace EngineeringCoperation.Forms.MemberMenus
             {
                 timerInbox.Start(); // restart setelah selesai
             }
+        }
+
+        private String loadMyBenef()
+        {
+            return loggedMember.ReferenceId + "-" + loggedMember.MemberId;
         }
     }
 }
