@@ -61,8 +61,8 @@ namespace EngineeringCoperation.Api.Connectors
             string json = JsonSerializer.Serialize(data, options);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "balance/sync", content);
+            var requestUrl = $"{_baseUrl.TrimEnd('/')}/balance/sync";
+            HttpResponseMessage response = await _httpClient.PostAsync(requestUrl, content);
             response.EnsureSuccessStatusCode();
 
             string responseJson = await response.Content.ReadAsStringAsync();
@@ -79,8 +79,8 @@ namespace EngineeringCoperation.Api.Connectors
             string json = JsonSerializer.Serialize(data, options);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "/transfer/save", content);
+            var requestUrl = $"{_baseUrl.TrimEnd('/')}/transfer/save";
+            HttpResponseMessage response = await _httpClient.PostAsync(requestUrl, content);
             response.EnsureSuccessStatusCode();
 
             string responseJson = await response.Content.ReadAsStringAsync();

@@ -39,11 +39,20 @@ namespace EngineeringCoperation.Forms.MemberMenus
                     {
                         message = await MemberRegistration(db);
                     }
-                    labelMyBenef.Text = "My Benef: " + loadMyBenef();
+                    textBalance.Text = "0";
+                   labelMyBenef.Text = "My Benef: " + loadMyBenef();
                     MessageBox.Show(message, "Registration Info", MessageBoxButtons.OK);
                 }
             } else
             {
+                var db = new AppDbContext();
+                BalanceService balanceService = new BalanceService(db);
+                Balance? balance = await balanceService.getBalance(loggedMember.MemberId);
+                if (balance != null)
+                {
+                    textBalance.Text = balance.Amount.ToString();
+                }
+
                 labelMyBenef.Text = "My Benef: " + loadMyBenef();
                 timerInbox.Enabled = true;
             }
@@ -126,10 +135,12 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 if (balance != null)
                 {
                     balance.Amount -= Decimal.Parse(transferAmount.ToString());
-                    balance.UpdateOn = DateTime.Now;
+                    balance.UpdateOn = DateTime.UtcNow;
                     balance.TransactionName = "Across Transfer";
                     balance.Flow = "OUT";
                     balanceService.Update(balance);
+
+                    textBalance.Text = balance.Amount.ToString();
 
                     BalanceApiResponse? balanceApiResponse = await connectorPost.BalanceUpdateAsync(new BalancePayload
                     {

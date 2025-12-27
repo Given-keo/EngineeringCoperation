@@ -38,7 +38,7 @@ namespace EngineeringCoperation.Api.Models
         public DateTime ResponseTime { get; set; }
         public string? MemberCode { get; set; }
         public string? CoopCode { get; set; }
-        public BalanceAcross? Balance { get; set; }
+        public Double? Balance { get; set; }
         [JsonPropertyName("balanceList")]
         public List<BalanceAcross> BalanceList { get; set; } = new();
     }
