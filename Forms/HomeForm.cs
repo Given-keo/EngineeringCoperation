@@ -20,6 +20,7 @@ namespace EngineeringCoperation.Forms
             InitializeComponent();
             this.Text = this.Text + " - User: " + loggedMember.FullName + " (" + loggedMember.MemberId + ")";
             title = this.Text;
+            inhouseToolStripMenuItem.Enabled = false;
             route(new DashboardPage(member));
         }
 
@@ -212,6 +213,18 @@ namespace EngineeringCoperation.Forms
         {
             this.Text = title + " << Exchange Transfer Page >>";
             route(new ExchangePage(loggedMember));
+        }
+
+        private void savingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Text = title + " << Saving Page >>";
+            route(new SavingPage(loggedMember));
+        }
+
+        private void inhouseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Text = title + " << Inhouse Page >>";
+            route(new InhousePage(loggedMember));
         }
     }
 }

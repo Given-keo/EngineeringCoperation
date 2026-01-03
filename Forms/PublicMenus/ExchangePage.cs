@@ -40,11 +40,16 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 decimal rate = Convert.ToDecimal(txtRate.Text);
                 decimal fee = Convert.ToDecimal(txtFee.Text);
                 decimal total = (amount * rate) + fee;
+                decimal subtotal = amount * rate;
                 txtTotal.Text = total.ToString("0.00");
+                txtSubTotal.Text = subtotal.ToString("0.00");
+                btnSubmit.Enabled = true;
             }
             catch (Exception)
             {
                 txtTotal.Text = "0.00";
+                txtSubTotal.Text = "0.00";
+                btnSubmit.Enabled = false;
             }
         }
 

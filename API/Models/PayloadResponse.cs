@@ -50,7 +50,7 @@ namespace EngineeringCoperation.Api.Models
         public DateTime ResponseTime { get; set; }
         public string? TransactionCode { get; set; }
         public TransferAcross? Transfer { get; set; }
-        [JsonPropertyName("memberList")]
+        [JsonPropertyName("transferList")]
         public List<TransferAcross> TransferList { get; set; } = new();
     }
 }

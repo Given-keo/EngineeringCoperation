@@ -64,6 +64,7 @@
             // 
             textBalance.Location = new Point(25, 65);
             textBalance.Name = "textBalance";
+            textBalance.ReadOnly = true;
             textBalance.Size = new Size(209, 23);
             textBalance.TabIndex = 1;
             // 
@@ -103,6 +104,7 @@
             // 
             textTransRef.Location = new Point(25, 229);
             textTransRef.Name = "textTransRef";
+            textTransRef.ReadOnly = true;
             textTransRef.Size = new Size(209, 23);
             textTransRef.TabIndex = 7;
             // 
@@ -150,6 +152,7 @@
             buttonClear.TabIndex = 11;
             buttonClear.Text = "Clear";
             buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // dgvIncoming
             // 
@@ -159,7 +162,7 @@
             dgvIncoming.Location = new Point(266, 32);
             dgvIncoming.Name = "dgvIncoming";
             dgvIncoming.ReadOnly = true;
-            dgvIncoming.Size = new Size(240, 132);
+            dgvIncoming.Size = new Size(686, 153);
             dgvIncoming.TabIndex = 12;
             // 
             // label6
@@ -179,7 +182,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(266, 178);
+            label7.Location = new Point(266, 197);
             label7.Name = "label7";
             label7.Size = new Size(58, 15);
             label7.TabIndex = 15;
@@ -190,10 +193,10 @@
             dgvOutgoing.AllowUserToAddRows = false;
             dgvOutgoing.AllowUserToDeleteRows = false;
             dgvOutgoing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOutgoing.Location = new Point(266, 196);
+            dgvOutgoing.Location = new Point(266, 215);
             dgvOutgoing.Name = "dgvOutgoing";
             dgvOutgoing.ReadOnly = true;
-            dgvOutgoing.Size = new Size(240, 132);
+            dgvOutgoing.Size = new Size(686, 151);
             dgvOutgoing.TabIndex = 14;
             // 
             // labelMyBenef
@@ -228,7 +231,7 @@
             Controls.Add(textBalance);
             Controls.Add(label1);
             Name = "AcrossTransferPage";
-            Size = new Size(543, 383);
+            Size = new Size(955, 383);
             Load += AcrossTransferPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvIncoming).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvOutgoing).EndInit();

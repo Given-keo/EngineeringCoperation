@@ -34,6 +34,10 @@ namespace EngineeringCoperation.Forms
                     form.ShowDialog();
                 } else
                 {
+                    Balance balance = new Balance();
+                    BalanceService balanceService = new BalanceService(db);
+                    balanceService.setBalance(user.MemberId);
+
                     AccessService accessService = new AccessService(db);
                     Access access = await accessService.GetAccess(user.Id);
                     if (access == null)
