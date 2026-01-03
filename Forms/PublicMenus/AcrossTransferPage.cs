@@ -17,7 +17,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
 {
     public partial class AcrossTransferPage : UserControl
     {
-        Member loggedMember;
+        Member loggedMember; // fix session
         public AcrossTransferPage(Member member)
         {
             loggedMember = member;
@@ -26,12 +26,12 @@ namespace EngineeringCoperation.Forms.MemberMenus
 
         private async void AcrossTransferPage_Load(object sender, EventArgs e)
         {
-            SetupOutgoingGrid();
-            SetupIncomingGrid();
-            String dateUtc = DateTime.UtcNow.ToString();
+            SetupOutgoingGrid(); // set header dan inisiasi kolom
+            SetupIncomingGrid(); 
+            String dateUtc = DateTime.UtcNow.ToString(); // 03/06/2024 14:30:15
             textTransRef.Text = dateUtc.Substring(0, 10);
 
-            timerInbox.Enabled = false;
+            timerInbox.Enabled = false; // interupt timer
             if (loggedMember.ReferenceId == null || loggedMember.ReferenceId == "" || loggedMember.ReferenceId == "-")
             {
                 DialogResult result = MessageBox.Show(
@@ -60,7 +60,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 }
 
                 labelMyBenef.Text = "My Benef: " + loadMyBenef();
-                timerInbox.Enabled = true;
+                timerInbox.Enabled = true; // start timer
             }
         }
 
@@ -123,7 +123,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
             ConnectorPost connectorPost = new ConnectorPost();
             Double transferAmount = Double.Parse(textAmount.Text);
 
-            String timeUtc = DateTime.UtcNow.ToString().Substring(10, 6);
+            String timeUtc = DateTime.UtcNow.ToString().Substring(10, 6); // 03/06/2024 14:30:15
             TransferApiResponse? response = await connectorPost.TransferAsync(new TransferPayload
             {
                 amount = transferAmount,
@@ -140,7 +140,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 BalanceService balanceService = new BalanceService(db);
                 Balance? balance = await balanceService.getBalance(loggedMember.MemberId);
                 if (balance != null)
-                {
+                { //local
                     balance.Amount -= Decimal.Parse(transferAmount.ToString());
                     balance.UpdateOn = DateTime.UtcNow;
                     balance.TransactionName = "Across Transfer";
@@ -150,26 +150,26 @@ namespace EngineeringCoperation.Forms.MemberMenus
                     textBalance.Text = balance.Amount.ToString();
 
                     BalanceApiResponse? balanceApiResponse = await connectorPost.BalanceUpdateAsync(new BalancePayload
-                    {
+                    { // api
                         amount = Double.Parse(balance.Amount.ToString()),
                         memberCode = loggedMember.MemberId,
                     });
 
                     if (balanceApiResponse != null && balanceApiResponse.ResponseCode == "00")
-                    {
+                    { // selesai outgoing
                         clearForm();
                         MessageBox.Show("Transfer Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             } else
             {
-                MessageBox.Show("Transfer Failed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Transfer Failed\n" + response.ResponseMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private async void timerInbox_Tick(object sender, EventArgs e)
         {
-            timerInbox.Stop();
+            timerInbox.Stop(); // pembersihan loop/interval process, menghindari leak, kebocoran memory
             await LoadInboxAsync();
             timerInbox.Start(); // restart setelah selesai
         }
@@ -190,11 +190,11 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 if (responseOutgoing?.ResponseCode == "00")
                 {
                     dgvOutgoing.DataSource = null;
-                    dgvOutgoing.DataSource = responseOutgoing.TransferList;
+                    dgvOutgoing.DataSource = responseOutgoing.TransferList;//2, 4, 6
                 }
 
                 String benefCode = $"{loggedMember.ReferenceId}-{loggedMember.MemberId}";
-                var responseIncoming = await connectorGet.GetIncomingByMemberAsync(loggedMember.MemberId);
+                var responseIncoming = await connectorGet.GetIncomingByMemberAsync(benefCode);
                 if (responseIncoming?.ResponseCode == "00")
                 {
                     dgvIncoming.DataSource = null;
@@ -205,6 +205,16 @@ namespace EngineeringCoperation.Forms.MemberMenus
                 if (responseBalance?.ResponseCode == "00")
                 {
                     textBalance.Text = responseBalance.Balance.ToString();
+                    var db = new AppDbContext();
+                    BalanceService balanceService = new BalanceService(db);
+                    Balance? balance = await balanceService.getBalance(loggedMember.MemberId);
+                    if (balance != null)
+                    {
+                        balance.Amount = Decimal.Parse(responseBalance.Balance.ToString());
+                        balance.UpdateOn = DateTime.UtcNow;
+                        balanceService.Update(balance!);
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -213,7 +223,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
             }
         }
 
-        private void SetupOutgoingGrid()
+        private void SetupOutgoingGrid() // transfer keluar, kita set di form
         {
             dgvOutgoing.AutoGenerateColumns = false;
             dgvOutgoing.Columns.Clear();
@@ -221,7 +231,7 @@ namespace EngineeringCoperation.Forms.MemberMenus
             dgvOutgoing.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "CodeBenef",
-                HeaderText = "Beneficiary",
+                HeaderText = "Beneficiary", // rekening tujuan
                 Name = "CodeBenef"
             });
 
@@ -261,16 +271,23 @@ namespace EngineeringCoperation.Forms.MemberMenus
             });
         }
 
-        private void SetupIncomingGrid()
+        private void SetupIncomingGrid() // transfer masuk, kita sebagai penerima
         {
             dgvIncoming.AutoGenerateColumns = false;
             dgvIncoming.Columns.Clear();
 
             dgvIncoming.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "CodeBenef",
-                HeaderText = "Beneficiary",
-                Name = "CodeBenef"
+                DataPropertyName = "CodeOrigin",
+                HeaderText = "Transfer From",
+                Name = "CodeOrigin"
+            });
+
+            dgvIncoming.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "CoopCode",
+                HeaderText = "Coop",
+                Name = "CoopCode"
             });
 
             dgvIncoming.Columns.Add(new DataGridViewTextBoxColumn
