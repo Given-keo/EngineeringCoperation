@@ -35,9 +35,9 @@
             memberToolStripMenuItem = new ToolStripMenuItem();
             accessToolStripMenuItem = new ToolStripMenuItem();
             productToolStripMenuItem = new ToolStripMenuItem();
+            approvalToolStripMenuItem = new ToolStripMenuItem();
             acrossCooperationToolStripMenuItem = new ToolStripMenuItem();
             panelDisplay = new Panel();
-            approvalToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,6 +92,13 @@
             productToolStripMenuItem.Text = "Product";
             productToolStripMenuItem.Click += productToolStripMenuItem_Click;
             // 
+            // approvalToolStripMenuItem
+            // 
+            approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
+            approvalToolStripMenuItem.Size = new Size(67, 20);
+            approvalToolStripMenuItem.Text = "Approval";
+            approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
+            // 
             // acrossCooperationToolStripMenuItem
             // 
             acrossCooperationToolStripMenuItem.Name = "acrossCooperationToolStripMenuItem";
@@ -106,13 +113,6 @@
             panelDisplay.Size = new Size(800, 424);
             panelDisplay.TabIndex = 1;
             // 
-            // approvalToolStripMenuItem
-            // 
-            approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
-            approvalToolStripMenuItem.Size = new Size(67, 20);
-            approvalToolStripMenuItem.Text = "Approval";
-            approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -122,7 +122,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "AdminForm";
-            Text = "Brave Hero Cooperation";
+            Text = "Engineering Coperation";
             Load += AdminForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
