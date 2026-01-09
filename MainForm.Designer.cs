@@ -38,7 +38,7 @@
             ControlBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Brave Hero Cooperation";
+            Text = "Engineering Coperation";
             ResumeLayout(false);
         }
 
