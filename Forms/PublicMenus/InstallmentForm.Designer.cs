@@ -50,9 +50,10 @@
             // 
             // buttonSubmit
             // 
-            buttonSubmit.Location = new Point(312, 240);
+            buttonSubmit.Location = new Point(357, 320);
+            buttonSubmit.Margin = new Padding(3, 4, 3, 4);
             buttonSubmit.Name = "buttonSubmit";
-            buttonSubmit.Size = new Size(91, 23);
+            buttonSubmit.Size = new Size(104, 31);
             buttonSubmit.TabIndex = 30;
             buttonSubmit.Text = "Submit";
             buttonSubmit.UseVisualStyleBackColor = true;
@@ -66,10 +67,12 @@
             dataGridViewInstallment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInstallment.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, paymentDateDataGridViewTextBoxColumn, proofPathDataGridViewTextBoxColumn });
             dataGridViewInstallment.DataSource = installmentBindingSource;
-            dataGridViewInstallment.Location = new Point(2, 2);
+            dataGridViewInstallment.Location = new Point(2, 3);
+            dataGridViewInstallment.Margin = new Padding(3, 4, 3, 4);
             dataGridViewInstallment.Name = "dataGridViewInstallment";
             dataGridViewInstallment.ReadOnly = true;
-            dataGridViewInstallment.Size = new Size(291, 390);
+            dataGridViewInstallment.RowHeadersWidth = 51;
+            dataGridViewInstallment.Size = new Size(333, 520);
             dataGridViewInstallment.TabIndex = 29;
             dataGridViewInstallment.CellClick += dataGridViewInstallment_CellClick;
             // 
@@ -77,29 +80,37 @@
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 125;
             // 
             // amountDataGridViewTextBoxColumn
             // 
             amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
             amountDataGridViewTextBoxColumn.HeaderText = "amount";
+            amountDataGridViewTextBoxColumn.MinimumWidth = 6;
             amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             amountDataGridViewTextBoxColumn.ReadOnly = true;
+            amountDataGridViewTextBoxColumn.Width = 125;
             // 
             // paymentDateDataGridViewTextBoxColumn
             // 
             paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
             paymentDateDataGridViewTextBoxColumn.HeaderText = "PaymentDate";
+            paymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
             paymentDateDataGridViewTextBoxColumn.ReadOnly = true;
+            paymentDateDataGridViewTextBoxColumn.Width = 125;
             // 
             // proofPathDataGridViewTextBoxColumn
             // 
             proofPathDataGridViewTextBoxColumn.DataPropertyName = "ProofPath";
             proofPathDataGridViewTextBoxColumn.HeaderText = "ProofPath";
+            proofPathDataGridViewTextBoxColumn.MinimumWidth = 6;
             proofPathDataGridViewTextBoxColumn.Name = "proofPathDataGridViewTextBoxColumn";
             proofPathDataGridViewTextBoxColumn.ReadOnly = true;
+            proofPathDataGridViewTextBoxColumn.Width = 125;
             // 
             // installmentBindingSource
             // 
@@ -107,59 +118,63 @@
             // 
             // textLoanId
             // 
-            textLoanId.Location = new Point(312, 27);
+            textLoanId.Location = new Point(357, 36);
+            textLoanId.Margin = new Padding(3, 4, 3, 4);
             textLoanId.Name = "textLoanId";
             textLoanId.ReadOnly = true;
-            textLoanId.Size = new Size(212, 23);
+            textLoanId.Size = new Size(242, 27);
             textLoanId.TabIndex = 31;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(315, 9);
+            label1.Location = new Point(360, 12);
             label1.Name = "label1";
-            label1.Size = new Size(47, 15);
+            label1.Size = new Size(60, 20);
             label1.TabIndex = 32;
             label1.Text = "Loan ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(315, 64);
+            label2.Location = new Point(360, 85);
             label2.Name = "label2";
-            label2.Size = new Size(51, 15);
+            label2.Size = new Size(62, 20);
             label2.TabIndex = 34;
             label2.Text = "Amount";
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(312, 82);
+            textAmount.Location = new Point(357, 109);
+            textAmount.Margin = new Padding(3, 4, 3, 4);
             textAmount.Name = "textAmount";
-            textAmount.Size = new Size(212, 23);
+            textAmount.Size = new Size(242, 27);
             textAmount.TabIndex = 33;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(315, 123);
+            label3.Location = new Point(360, 164);
             label3.Name = "label3";
-            label3.Size = new Size(46, 15);
+            label3.Size = new Size(59, 20);
             label3.TabIndex = 36;
             label3.Text = "Receipt";
             // 
             // textPath
             // 
-            textPath.Location = new Point(312, 141);
+            textPath.Location = new Point(357, 188);
+            textPath.Margin = new Padding(3, 4, 3, 4);
             textPath.Name = "textPath";
             textPath.ReadOnly = true;
-            textPath.Size = new Size(212, 23);
+            textPath.Size = new Size(242, 27);
             textPath.TabIndex = 35;
             // 
             // buttonNew
             // 
-            buttonNew.Location = new Point(412, 240);
+            buttonNew.Location = new Point(471, 320);
+            buttonNew.Margin = new Padding(3, 4, 3, 4);
             buttonNew.Name = "buttonNew";
-            buttonNew.Size = new Size(112, 23);
+            buttonNew.Size = new Size(128, 31);
             buttonNew.TabIndex = 37;
             buttonNew.Text = "New Installment";
             buttonNew.UseVisualStyleBackColor = true;
@@ -167,9 +182,10 @@
             // 
             // buttonReceipt
             // 
-            buttonReceipt.Location = new Point(451, 170);
+            buttonReceipt.Location = new Point(515, 227);
+            buttonReceipt.Margin = new Padding(3, 4, 3, 4);
             buttonReceipt.Name = "buttonReceipt";
-            buttonReceipt.Size = new Size(73, 23);
+            buttonReceipt.Size = new Size(83, 31);
             buttonReceipt.TabIndex = 38;
             buttonReceipt.Text = "Browse";
             buttonReceipt.UseVisualStyleBackColor = true;
@@ -177,9 +193,10 @@
             // 
             // InstallmentForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(541, 406);
+            BackColor = SystemColors.Info;
+            ClientSize = new Size(618, 541);
             ControlBox = false;
             Controls.Add(buttonReceipt);
             Controls.Add(buttonNew);
@@ -191,6 +208,7 @@
             Controls.Add(textLoanId);
             Controls.Add(buttonSubmit);
             Controls.Add(dataGridViewInstallment);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "InstallmentForm";
             Text = "Installment";
             Load += InstallmentForm_Load;
